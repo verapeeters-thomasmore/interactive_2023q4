@@ -19,44 +19,19 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <button class="btn btn-outline-primary" type="button" onclick="messagePenalty()">calculate</button>
+                <button class="btn btn-outline-primary" type="button" onclick="calculatePenalty()">order</button>
             </div>
         </div>
     </form>
     <div id="result" class="alert alert-primary"></div>
 </div>
 <script>
-    function calculatePenalty(allowed, measured) {
-
-
-        const tooFast = measured - allowed;
-        if (tooFast <= 0)
-            return 0;
-        if (allowed <= 50 && tooFast >= 11 && tooFast <= 30)
-            return 50 + (tooFast - 10) * 10;
-        if (allowed > 50 && tooFast >= 11 && tooFast <= 40)
-            return 50 + (tooFast - 10) * 5;
-        if (allowed <= 50 && tooFast > 30 || allowed > 50 && tooFast > 40)
-            return -1;
-        return 50;
-    }
-
-    function messagePenalty() {
-        let message;
-        let penalty = 0;
-        const allowedSpeedEl = (document.getElementById("allowedSpeed").value);
-        const measureSpeedEl = (document.getElementById("measureSpeed").value);
-        if (!allowedSpeedEl || !measureSpeedEl)
-            message = "geef 2 keer een getal op";
-        else if (isNaN(Number(parseInt(allowedSpeedEl))) || isNaN(Number(parseInt(measureSpeedEl))))
-            message = "je mag enkel getallen gebruiken";
-        else {
-
-            penalty = calculatePenalty(Number(allowedSpeedEl), Number(measureSpeedEl));
-            message = penalty === 0 ? "voorbeeldige chauffeur" :
-                penalty === -1 ? "politierechtbank" : "boete bedraagt " + penalty + " euro.";
-        }
-        document.getElementById("result").innerHTML = message;
+    function calculatePenalty() {
+        // Vergelijk de gemeten snelheid met de maximum toegelaten snelheid.
+        // Als je niet te snel rijdt, dan is er geen probleem.
+        // Als je te snel rijdt, dan berekent het programma je boete.
+        // De boete is een vast bedrag van € 100 + € 2,5 per km die je te snel reed.
+        // Toon de boete in de div met id "result"
     }
 </script>
 </body>

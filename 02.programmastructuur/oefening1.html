@@ -21,31 +21,13 @@
             <div class="input-group-prepend">
                 <button class="btn btn-outline-primary" type="button" onclick="order()">order</button>
             </div>
-
         </div>
     </form>
     <div id="result" class="alert alert-primary"></div>
 </div>
 <script>
-    function getOrder(number1El, number2El) {
-        if (!number1El || !number2El)
-            return "Vul beide getallen in";
-        if (isNaN(parseFloat(number1El)) || isNaN(parseFloat(number2El)))
-            return "Je mag enkel getallen gebruiken";
-        const number1 = Number(number1El);
-        const number2 = Number(number2El);
-        if (number1 === number2)
-            return `${number1} = ${number2}`;
-        if (number1 < number2)
-            return `${number1} < ${number2}`
-        return `${number1} > ${number2}`;
-    }
-
     function order() {
-        const number1El = document.getElementById("number1").value;
-        const number2El = document.getElementById("number2").value;
-        const message = getOrder(number1El, number2El);
-        document.getElementById("result").innerHTML = message;
+        //rangschik de 2 getallen van klein naar groot en toon ze in de div met id "result"
     }
 </script>
 </body>

@@ -27,13 +27,8 @@
 </div>
 <script>
     function showMultiplications() {
-        const baseNumber = document.getElementById("baseNumber").value;
-        let result="";
-        for (i = 1; i <= document.getElementById("amountOfLines").value; i++)
-        {
-            result+= i + " * " + baseNumber + " = " + (i * baseNumber) +"<br>";
-        }
-        document.getElementById("result").innerHTML = result;
+        // Toon de tafel van het getal "baseNumber" in de div met id "result"
+        // Toon "amountOfLines" lijnen van deze tafel
     }
 </script>
 </body>
