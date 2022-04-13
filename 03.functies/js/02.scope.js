@@ -11,10 +11,6 @@ console.log(n);
 const hummus = function(portions) {
     const ingredient = function(hoeveelheid, eenheid, naam) {
         let ingredientHoeveelheid = hoeveelheid * portions;
-        if (ingredientHoeveelheid > 1 && eenheid !== "gram") {
-            eenheid += "s";
-
-        }
         console.log(`${ingredientHoeveelheid} ${eenheid} ${naam}`);
 
     }
