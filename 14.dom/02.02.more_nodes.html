@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>more nodes</title>
+    <style>
+        .even {
+            color: gray;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+<h1>Meer over de DOM</h1>
+<div id="heading">
+    <div><img src="img/html-links.svg" alt="DOM relaties"></div>
+    <h4 id="titel">DOM relaties tussen nodes</h4>
+</div>
+<div id="content">
+    <p class="oneven">Alle elementen hebben een parentNode = verwijzing naar de box waarvan het deel uitmaakt (behalve
+        de root).</p>
+    <p class="even">Alle element nodes (nodeType=1) hebben een property childNodes : verwijzing naar een arrayachtige
+        verzameling van kinderen (het is jammer genoeg geen echte array).</p>
+    <p class="oneven">Ze hebben bovendien ook de properties firstChild en lastChild (of null indien er geen kinderen
+        zijn).</p>
+    <p class="even">Op dezelfde wijze verwijzen previousSibling en nextSibling resp. naar de node er valk voor of vlak
+        erna – previousSibling is dus steeds null voor het eerste child en nextSibling is null voor het laatste.</p>
+    <p class="oneven">De children property is vergelijkbaar met childNodes maar bevat enkel de children van
+        nodeType=1.</p>
+</div>
+<div id="buttons">
+    <button onclick="gaatOver(document.body, 'element');">Zoek op <i>node</i></button>
+    <hr>
+    <button onclick="zoekType('p', 0);">Zoek het eerste <i>&lt;p&gt; element</i></button>
+    <hr>
+    <button onclick="zoekClass('even', 0);">Zoek het eerste <i>.even element</i></button>
+    <hr>
+    <button onclick="let element = zoekId('titel');alert(element.firstChild.nodeValue);">Zoek het element met <i>id=titel</i>
+    </button>
+    <hr>
+    <button onclick="verplaats();">Plaats eerste <i>&lt;p&gt; element</i> onderaan</button>
+    <hr>
+    <button onclick="verwissel(0, 2);">Verwissel <i>&lt;p&gt; element</i> 0 met <i>&lt;p&gt; element</i> 2</button>
+</div>
+<script src="js/02.02.more_nodes.js"></script>
+
+</body>
+</html>

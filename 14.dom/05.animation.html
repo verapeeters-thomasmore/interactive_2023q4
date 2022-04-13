@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animation</title>
+    <style>body { min-height: 200px }</style>
+</head>
+<body>
+
+<img src="img/cat.png" id="cat" alt="kat">
+
+<script>
+    let cat = document.querySelector("#cat");
+    cat.style.position = "absolute";
+    let start = null;
+    let offset = 0;
+    let toRight = true;
+    let left = 0;
+    let oldLeft = 0;
+
+    function animate(time) {
+        if (!start) {
+            start = time;
+            starttop = start;
+        }
+        //original: /10 --> /2 makes cat move faster
+        if (toRight) {
+            left = (time - start - offset) / 2;
+        } else {
+            left = 600 - (time - start - offset) / 2;
+        }
+        if (left < 0 || left > 600) {
+            offset = time - start;
+            toRight = !toRight;
+            if (left < 0) {
+                left = 0;
+            }
+        }
+        if (oldLeft==0 || (toRight && left-oldLeft>97) || (!toRight && oldLeft-left>97)) {
+            oldLeft = left;
+            console.log("left = " + left);
+        }
+        cat.style.left = left + 'px';
+//next line makes cat move down
+//        cat.style.top = ((time - start) / 100) + 'px';
+        requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+</script>
+</body>
+</html>

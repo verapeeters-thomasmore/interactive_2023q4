@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>attributes</title>
+    <script src="js/07.attributes.js"></script>
+    <style>
+        html {
+            margin: 10px;
+        }
+
+        .blue {
+            color: blue;
+            font-style: italic;
+        }
+
+        .green {
+            color: lightgreen;
+            font-size: x-large;
+        }
+
+        .hidden {
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div id="quote">
+    De dieren lijden en hun gejammer vervult de lucht. De bossen vallen ten prooi aan vernietiging. De bergen worden
+    opengescheurd voor de metalen die in hun aderen groeien. En de mens looft en prijst degenen die aan de natuur en aan
+    de mensheid de grootste schade berokkenen.
+</div>
+<hr>
+<label for="kleur"></label>
+<select id="kleur" onchange="kleur(this.value);">
+    <option value="black">Zwart</option>
+    <option value="blue">Blauw</option>
+    <option value="green">Groen</option>
+    <option value="hidden">onzichtbaar</option>
+</select>
+<select id="fontsize" onchange="fontsize(this.value);">
+    <option></option>
+    <option value="xx-large">xx-large</option>
+    <option value="large">large</option>
+    <option value="medium">medium</option>
+    <option value="small">small</option>
+    <option value="xx-small">xx-small</option>
+</select>
+</body>
+</html>

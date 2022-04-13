@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Positie en afmetingen</title>
+    <script src="js/08.position.js"></script>
+    <style type="text/css">
+        * {
+            font-family: Arial, Verdana, sans-serif;
+            color: #665544;
+            text-align: center;
+        }
+
+        body {
+            width: 90%;
+            margin: 0 auto;
+            background-color: #efefef;
+        }
+
+        .content {
+            background-color: #00CC33 /*   let op: content bevat float elementen,
+            div "ziet" deze float elementen niet en kan er dus deze css niet op toepassen
+            oplossing : leeg element inzetten (clearfix)*/
+
+        }
+
+        .clearfix::before, .clearfix::after {
+            content: " ";
+            display: table;
+        }
+
+        .clearfix::after {
+            clear: both;
+        }
+
+        #column1, #column2, #column3 {
+            background-color: #efefef;
+            width: 31.3%;
+            float: left;
+            margin: 1%;
+            padding: 1%;
+            box-sizing: border-box;
+        }
+        #column1 {
+            border: 1px solid blue;
+        }
+        #column2 {
+            border: 2px solid blue;
+        }
+        #column3 {
+            border: 3px solid blue;
+        }
+
+        li a {
+            text-decoration: none;
+        }
+        li a:hover{
+            color: #270d5c;
+            background-color: white;
+        }
+
+        li {
+            display: inline;
+            padding: 5px;
+            border-style: double;
+            background-color: #00CC33;
+
+        }
+
+        .footer {
+            text-align: right;
+            text-transform: capitalize;
+        }
+
+        .control, .control select {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+        #empty {
+            min-height: 700px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Logo</h1>
+    <ul>
+        <li><a href="">Home</a></li>
+        <li><a href="">Producten</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+        <li><button onclick="breder();">kolom2 breder</button></li>
+    </ul>
+</div>
+</div>
+<div class="content">
+    <p>Feature</p>
+    <div class="clearfix">
+        <div id="column1">
+            <p>Het is al geruime tijd een bekend gegeven dat een lezer, tijdens het bekijken van de layout van een
+                pagina, afgeleid wordt door de tekstuele inhoud. Het belangrijke punt van het gebruik van Lorem Ipsum is
+                dat het uit een min of meer normale verdeling van letters bestaat, in tegenstelling tot "Hier uw tekst,
+                hier uw tekst" wat het tot min of meer leesbaar nederlands maakt. Veel desktop publishing pakketten en
+                web pagina editors gebruiken tegenwoordig Lorem Ipsum als hun standaard model tekst, en een zoekopdracht
+                naar "lorem ipsum" ontsluit veel websites die nog in aanbouw zijn. Verscheidene versies hebben zich
+                ontwikkeld in de loop van de jaren, soms per ongeluk soms expres (ingevoegde humor en dergelijke).</p>
+        </div>
+        <div id="column2">
+            <p></p>
+            <p>In tegenstelling tot wat algemeen aangenomen wordt is Lorem Ipsum niet zomaar willekeurige tekst. het
+                heeft zijn wortels in een stuk klassieke latijnse literatuur uit 45 v.Chr. en is dus meer dan 2000 jaar
+                oud. Richard McClintock, een professor latijn aan de Hampden-Sydney College in Virginia, heeft één van
+                de meer obscure latijnse woorden, consectetur, uit een Lorem Ipsum passage opgezocht, en heeft tijdens
+                het zoeken naar het woord in de klassieke literatuur de onverdachte bron ontdekt. Lorem Ipsum komt uit
+                de secties 1.10.32 en 1.10.33 van "de Finibus Bonorum et Malorum" (De uitersten van goed en kwaad) door
+                Cicero, geschreven in 45 v.Chr. Dit boek is een verhandeling over de theorie der ethiek, erg populair
+                tijdens de renaissance. De eerste regel van Lorem Ipsum, "Lorem ipsum dolor sit amet..", komt uit een
+                zin in sectie 1.10.32.
+
+                Het standaard stuk van Lorum Ipsum wat sinds de 16e eeuw wordt gebruikt is hieronder, voor wie er
+                interesse in heeft, weergegeven. Secties 1.10.32 en 1.10.33 van "de Finibus Bonorum et Malorum" door
+                Cicero zijn ook weergegeven in hun exacte originele vorm, vergezeld van engelse versies van de 1914
+                vertaling door H. Rackham.</p>
+        </div>
+        <div id="column3">
+            <p>Sectie 1.10.32 van "de Finibus Bonorum et Malorum", geschreven door Cicero in 45 v.Chr.
+                "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
+                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
+                dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
+                incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
+                exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
+                vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
+                qui dolorem eum fugiat quo voluptas nulla pariatur?"
+
+                1914 vertaling door H. Rackham
+                "But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born
+                and I will give you a complete account of the system, and expound the actual teachings of the great
+                explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids
+                pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure
+                rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or
+                pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances
+                occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us
+                ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any
+                right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one
+                who avoids a pain that produces no resultant pleasure?"</p>
+        </div>
+    </div>
+    <div class="clearfix">
+        <p class="footer">&copy; Copyright 2019</p>
+        <div class="control">
+            <label for="kolom">Bepaal positie en afmetingen van </label>
+            <select id="kolom" onchange="positie(this.value);">
+                <option value=""></option>
+                <option value="column1">de eerste kolom</option>
+                <option value="column2">de tweede kolom</option>
+                <option value="column3">de derde kolom</option>
+            </select>
+        </div>
+        <div class="control">
+            <button onclick="move(20);">Verschuif de inhoud in de middelste kolom 20px naar onder</button>
+        </div>
+        <div id="empty"></div>
+    </div>
+</div>
+</body>
+</html>
