@@ -8,20 +8,44 @@
 </head>
 <body>
 <div class="container">
-        <h1>Javascript and the web: een button</h1>
-        <div id="count" class="alert alert-primary"></div>
-        <button class="btn btn-outline-primary" type="button" onclick="count()">Count</button>
+    <h1>Javascript and the web: een button</h1>
+    <div id="count" class="alert alert-primary"></div>
+    <div class="row">
+        <div class="col text-center">
+            counter 0
+            <div>
+                <button class="btn btn-outline-primary" type="button" onclick="change(0, 1)">+</button>
+                <button class="btn btn-outline-primary" type="button" onclick="change(0, -1)">-</button>
+            </div>
+        </div>
+        <div class="col text-center">
+            counter 1
+            <div>
+                <button class="btn btn-outline-primary" type="button" onclick="change(1, 1)">+</button>
+                <button class="btn btn-outline-primary" type="button" onclick="change(1, -1)">-</button>
+            </div>
+        </div>
+        <div class="col text-center">
+            counter 2
+            <div>
+                <button class="btn btn-outline-primary" type="button" onclick="change(2, 1)">+</button>
+                <button class="btn btn-outline-primary" type="button" onclick="change(2, -1)">-</button>
+            </div>
+        </div>
+    </div>
 
 </div>
 <script>
-    let counter = 0;
+    let counters = [];
+    let counter1 = 0;
+    let counter2 = 0;
 
-    function count() {
-        counter++;
+    function change(index, amount) {
+        counters[index] = counters[index] + amount || 0;
         const countEl = document.getElementById("count");
-        console.log(`counter=${counter}`);
-        countEl.innerHTML = `counter is ${counter}`;
+        countEl.innerHTML = counters.map((c, i) => `counter ${i} is ${c}`).join(" and ");
     }
+
 </script>
 </body>
 </html>
