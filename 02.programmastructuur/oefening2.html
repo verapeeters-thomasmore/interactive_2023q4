@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Oefening 2</title>
+</head>
+<body>
+<div class="container">
+    <h1>Hoofdstuk 2: Oefening 2</h1>
+    <form>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Boete</span>
+            </div>
+            <input type="text" id="allowedSpeed" class="form-control" placeholder="toegelaten snelheid">
+            <input type="text" id="measureSpeed" class="form-control" placeholder="gereden snelheid">
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-primary" type="button" onclick="messagePenalty()">calculate</button>
+            </div>
+        </div>
+    </form>
+    <div id="result" class="alert alert-primary"></div>
+</div>
+<script>
+    function calculatePenalty(allowed, measured) {
+
+
+        const tooFast = measured - allowed;
+        if (tooFast <= 0)
+            return 0;
+        if (allowed <= 50 && tooFast >= 11 && tooFast <= 30)
+            return 50 + (tooFast - 10) * 10;
+        if (allowed > 50 && tooFast >= 11 && tooFast <= 40)
+            return 50 + (tooFast - 10) * 5;
+        if (allowed <= 50 && tooFast > 30 || allowed > 50 && tooFast > 40)
+            return -1;
+        return 50;
+    }
+
+    function messagePenalty() {
+        let message;
+        let penalty = 0;
+        const allowedSpeedEl = (document.getElementById("allowedSpeed").value);
+        const measureSpeedEl = (document.getElementById("measureSpeed").value);
+        if (!allowedSpeedEl || !measureSpeedEl)
+            message = "geef 2 keer een getal op";
+        else if (isNaN(Number(parseInt(allowedSpeedEl))) || isNaN(Number(parseInt(measureSpeedEl))))
+            message = "je mag enkel getallen gebruiken";
+        else {
+
+            penalty = calculatePenalty(Number(allowedSpeedEl), Number(measureSpeedEl));
+            message = penalty === 0 ? "voorbeeldige chauffeur" :
+                penalty === -1 ? "politierechtbank" : "boete bedraagt " + penalty + " euro.";
+        }
+        document.getElementById("result").innerHTML = message;
+    }
+</script>
+</body>
+</html>
