@@ -12,13 +12,6 @@
     <div id="count" class="alert alert-primary"></div>
     <div class="row">
         <div class="col text-center">
-            counter 0
-            <div>
-                <button class="btn btn-outline-primary" type="button" onclick="change(0, 1)">+</button>
-                <button class="btn btn-outline-primary" type="button" onclick="change(0, -1)">-</button>
-            </div>
-        </div>
-        <div class="col text-center">
             counter 1
             <div>
                 <button class="btn btn-outline-primary" type="button" onclick="change(1, 1)">+</button>
@@ -36,16 +29,17 @@
 
 </div>
 <script>
-    let counters = [];
     let counter1 = 0;
     let counter2 = 0;
 
     function change(index, amount) {
-        counters[index] = counters[index] + amount || 0;
+        if (index === 1) counter1 += amount;
+        if (index === 2) counter2 += amount;
         const countEl = document.getElementById("count");
-        countEl.innerHTML = counters.map((c, i) => `counter ${i} is ${c}`).join(" and ");
+        countEl.innerHTML = `counter1 = ${counter1} and counter2 = ${counter2} `
     }
 
 </script>
+
 </body>
 </html>
