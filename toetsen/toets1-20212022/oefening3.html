@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <title>Oefening 4</title>
+</head>
+<body>
+<div class="container">
+    <h1>Bereken de kost om een boek te drukken</h1>
+    <form>
+        <div class="input-group mb-3">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">titel boek</span>
+                </div>
+                <input type="text" id="titleBook" class="form-control" placeholder="titel boek">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">aantal bladzijden</span>
+                </div>
+                <input type="text" id="nrOfPages" class="form-control" placeholder="aantal bladzijden">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">oplage</span>
+                </div>
+                <input type="text" id="amountOfBooks" class="form-control" placeholder="oplage">
+            </div>
+
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <button class="btn btn-outline-primary" type="button" onclick="calculatePrice()">bereken kost om boek te
+                    drukken
+                </button>
+            </div>
+        </div>
+    </form>
+    <div id="result" class="alert alert-primary"></div>
+</div>
+<script src="oefening2.js"></script>
+
+<script>
+    const titleBookEl = document.getElementById("titleBook");
+    const nrOfPagesEl = document.getElementById("nrOfPages");
+    const amountOfBooksEl = document.getElementById("amountOfBooks");
+
+    function getMessage(name, nrOfPages, amountOfBooks) {
+        if (!name) return "Het boek heeft geen titel";
+        if (!nrOfPages) return "Het aantal bladzijden is ongeldig";
+        if (!amountOfBooks) return "De oplage is ongeldig";
+        return kostDrukBoek(name, nrOfPages, amountOfBooks);
+    }
+
+    function calculatePrice() {
+        const name = titleBookEl.value;
+        const nrOfPages = Number(nrOfPagesEl.value);
+        const amountOfBooks = Number(amountOfBooksEl.value);
+        const message = getMessage(name, nrOfPages, amountOfBooks);
+        document.getElementById("result").innerHTML = message;
+
+    }
+</script>
+</body>
+</html>
