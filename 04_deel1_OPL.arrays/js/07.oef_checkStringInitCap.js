@@ -15,3 +15,10 @@ function check (zin)
 }
 console.log(check("Dit Is Een Zin"))
 
+
+function sentenceWithInitCap(zin) {
+    return zin.split(" ").map((woord) =>
+        woord.charAt(0).toUpperCase()+woord.slice(1).toLowerCase()).join(" ");
+
+}
+console.log(sentenceWithInitCap("Dit Is een ZIN"));
