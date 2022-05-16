@@ -12,6 +12,7 @@ function upgrade_simple(weapon) {
     return {...weapon, guardDamage: weapon.guardDamage + 1, healthDamage: weapon.healthDamage + 1}
 }
 
+console.log()
 console.log("upgrade");
 console.log(upgrade_simple(weapon));
 
@@ -26,6 +27,7 @@ const anotherWeapon = {
 console.log(anotherWeapon);
 console.log(upgrade_simple(anotherWeapon));
 
+console.log()
 console.log("------------------------ upgrade weapon with version");
 
 function upgrade(weapon) {
@@ -37,48 +39,12 @@ function upgrade(weapon) {
     }
 }
 
+console.log()
 console.log(weapon);
 console.log("upgrade");
 console.log(upgrade(weapon));
 
+console.log()
 console.log(anotherWeapon);
 console.log(upgrade(anotherWeapon));
 console.log(upgrade(upgrade(anotherWeapon)));
-
-console.log("------------------------ warrior");
-let warrior = {left: weapon, right: anotherWeapon};
-console.log(warrior);
-
-console.log("------------------------ amount of damage");
-function amountOfDamage(warrior, hand, typeOfAttack) {
-    return warrior[hand][typeOfAttack];
-}
-
-console.log(amountOfDamage(warrior, "left", "guardDamage"));
-console.log(amountOfDamage(warrior, "left", "healthDamage"));
-console.log(amountOfDamage(warrior, "right", "guardDamage"));
-console.log(amountOfDamage(warrior, "right", "healthDamage"));
-
-console.log("------------------------ describe damage for warrior");
-const hands = ["left", "right"];
-const typesOfDamage = ["guardDamage", "healthDamage"];
-
-function logAllAmountsOfDamage(warrior) {
-    hands.forEach(h => typesOfDamage.forEach(t => console.log(`${h} hand ${t}: ${amountOfDamage(warrior, h, t)}`)))
-}
-
-logAllAmountsOfDamage(warrior);
-
-console.log("------------------------ new weapon");
-const newWeapon = {
-    name: "Ritual Dagger",
-    guardDamage: 5,
-    healthDamage: 5,
-};
-warrior = {...warrior, left: newWeapon};
-logAllAmountsOfDamage(warrior);
-
-console.log("------------------------ upgrade right weapon");
-warrior = {...warrior, right: upgrade(warrior.right)};
-logAllAmountsOfDamage(warrior);
-
