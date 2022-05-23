@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Een formulier</title>
+    <style>
+        div, button, hr {
+            margin-top: 40px;
+        }
+        button {
+            margin-left: 260px;
+        }
+        label, input, select, textarea {
+            font-size: 2rem;
+            display: inline-block;
+        }
+        button, input[type=button] {
+            font-size: 1.5em;
+            padding: 0.25em 0.5em;
+        }
+        label {
+            width: 240px;
+            margin-right: 20px;
+            text-align: right;
+            vertical-align: top;
+        }
+        input[type="checkbox"] {
+            margin-left: 260px;
+        }
+        input + label {
+            width: auto;
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+        .error {
+            color: red;
+            font-size: 1.5em;
+            margin-left: 20px;
+        }
+        .info {
+            color: green;
+            font-size: 1.5em;
+            margin-left: 20px;
+        }
+        br + input {
+            margin-left: 264px;
+            margin-top: 10px;
+        }
+        input#diploma {
+            margin-left: 10px;
+            font-size: 1.5em;
+            color: green;
+        }
+        input#diploma::before {
+            margin-right: 20px;
+        }
+        textarea {
+            width: 500px;
+            height: 100px;
+        }
+        input + pre {
+            width: 500px;
+            vertical-align: top;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<form method="GET" action="03.answer.html">
+    <div>
+        <label for="naam">Naam :</label>
+        <input type="text" id="naam" name="name">
+        <span class="error" id="nameerror"></span>
+    </div>
+    <div>
+        <label for="boodschap">Boodschap :</label>
+        <textarea id="boodschap" name="message" rows="5" cols="30"></textarea>
+        <span class="info" id ="boodschapinfo"></span>
+    </div>
+    <div>
+        <label for="kleur">Favoriete kleur :</label>
+        <input type="text" id="kleur" name="color" list="kleurkiezer">
+        <datalist id="kleurkiezer">
+            <option value="rood">
+            <option value="blauw">
+            <option value="groen">
+        </datalist>
+    </div>
+    <div>
+        <input type="checkbox" id="wazig" name="wazig" value="ja">
+        <label for="wazig">Ik hou van wazige kleuren</label>
+        <br>
+        <input type="checkbox" id="helder" name="helder">
+        <label for="helder">Ik zie graag heldere kleuren</label>
+    </div>
+    <div>
+        <label for="muziek">Favoriete muziek :</label>
+        <select id="muziek" name="music" multiple>
+            <option>geen</option>
+            <option value="pop">Pop</option>
+            <option value="rock">Rock</option>
+            <option value="classic">Klassiek</option>
+        </select>
+        <span class="info" id ="muziekinfo"></span>
+    </div>
+    <div>
+        <label>Ruimdenkend?</label>
+        <input type="radio" id="ja" value="ja" name="poll">
+        <label for="ja" class="radiolabel">Ja</label>
+        <input type="radio" id="nee" value="nee" name="poll">
+        <label for="nee" class="radiolabel">Nee</label>
+        <input type="radio" id="redelijk" value="redelijk" name="poll">
+        <label for="redelijk" class="radiolabel">Nogal</label>
+    </div>
+    <div>
+        <label for="tekst">Tekst :</label>
+        <input type="file" id="tekst" name="text"  style="display:none;" accept="text/plain">
+        <input type="button" id="laadTekst" value="Kies tekst" onclick="document.getElementById('tekst').click();">
+        <span class="info" id ="tekstinfo"></span>
+        <br>
+        <input type="button" id="lees" value="Lees tekst" style="display: none;">
+        <pre class="info" id ="leesinfo"style="display: none;"></pre>
+    </div>
+    <hr>
+    <button type="submit">Verzenden</button>
+</form>
+
+<script>
+    let elt = document.querySelector("#kleur");
+    elt.focus();
+    console.log(document.activeElement);
+
+    let form = document.querySelector("form");
+    console.log(form.elements[1]);
+    console.log(form.elements.poll);
+
+    form.addEventListener("submit", event => {
+        console.log(form.elements.name.value);
+        if (form.elements.name.value == "") {
+           document.getElementById("nameerror").innerText = "deze waarde is verplicht!";
+           event.preventDefault();
+        }
+        for (elt of Array.from(form.elements)) {
+            localStorage.setItem(elt.name, elt.value);
+        }
+    });
+
+    let textarea = document.getElementById("boodschap");
+    textarea.addEventListener("keydown", event => {
+        // shortcut voor F2
+        if (event.keyCode == 113) {
+            replaceSelection(textarea, "Met vriendelijke groeten\n\nDe verkoopafdeling");
+            countBoodschap();
+            event.preventDefault();
+        }
+    });
+
+    textarea.addEventListener("input", event => countBoodschap());
+
+    function replaceSelection(field, word) {
+        let from = field.selectionStart, to = field.selectionEnd;
+        field.value = field.value.slice(0, from) + word + field.value.slice(to);
+        field.selectionStart = from + word.length;
+        field.selectionEnd = from + word.length;
+    }
+
+    function countBoodschap() {
+        let text = textarea.value.length + " karakters";
+        if (textarea.value.length == 0) {
+            text = "";
+        }
+        document.getElementById("boodschapinfo").innerText = text;
+    }
+
+    let checkBoxes = document.querySelectorAll("input[type=checkbox]");
+    for (let checkBox of Array.from(checkBoxes)) {
+        checkBox.addEventListener("change", () => {
+            document.querySelector("[for="+checkBox.id+"]").style.fontWeight = 100;
+            if (checkBox.checked) {
+                document.querySelector("[for="+checkBox.id+"]").style.fontWeight = 900;
+            }
+        });
+    }
+
+    let radios = document.querySelectorAll("[name=poll]");
+    let radioLabels = document.querySelectorAll(".radiolabel");
+    for (let radio of Array.from(radios)) {
+        radio.addEventListener("change", () => {
+            for (let radioLabel of Array.from(radioLabels)) {
+                radioLabel.style.color = "gray";
+            }
+            document.querySelector("[for="+radio.value+"]").style.color = "black";
+        });
+    }
+
+    let select = document.getElementById("muziek");
+    select.addEventListener("change", () => {
+        let aantal = 0;
+        let geenSelected = false;
+        for (let option of Array.from(select.options)) {
+            if (option.value=="geen" && option.selected) {
+                geenSelected = true;
+            } else {
+                if (geenSelected) option.selected = false;
+                if (option.selected) aantal++;
+            }
+        }
+        if (geenSelected) {
+            document.getElementById("muziekinfo").innerText = "";
+        } else {
+            document.getElementById("muziekinfo").innerText = aantal + " muziekgenres gekozen";
+        }
+    });
+
+    let txt = document.getElementById("tekst");
+    let laadTxt = document.getElementById("laadTekst");
+    let infoTxt = document.getElementById("tekstinfo");
+    let lees = document.getElementById("lees");
+    let infoLees = document.getElementById("leesinfo");
+    txt.addEventListener("change", () => {
+        if (txt.files.length == 0) {
+            laadTxt.value = "Kies tekst";
+            infoTxt.innerText = "";
+            lees.style.display = "none";
+            infoLees.style.display = "none";
+        } else {
+            laadTxt.value = "Wijzig tekst";
+            infoTxt.innerText = txt.files[0].name + " (" + txt.files[0].size + " bytes)";
+            lees.style.display = "inline-block";
+        }
+    });
+
+    lees.addEventListener("click", () => {
+        let reader = new FileReader();
+        reader.addEventListener("load", () => {
+            infoLees.innerText = reader.result;
+            infoLees.style.display = "inline-block";
+        });
+        reader.readAsText(txt.files[0]);
+    });
+</script>
+</body>
+</html>

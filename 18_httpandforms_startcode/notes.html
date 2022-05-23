@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notes</title>
+  <script src="js/notes.js"></script>
+  <style>
+    select, button, label, input, textarea {
+      margin: 10px;
+      font-size: 1.5rem;
+    }
+    select, button, input {
+      display: inline-block;
+      padding: 0.25em 1em;
+    }
+    button {
+      background-color: lightblue;
+    }
+    h1, #noteslist {
+      margin-left: 20px;
+    }
+    select + button, input, #displaylist {
+      margin-left: 40px;
+    }
+    textarea {
+      display: block;
+      padding: 10px;
+      width: calc(100% - 80px);
+    }
+    h2 {
+      margin-top: 50px;
+    }
+    .selected {
+      background-color: lightgray;
+    }
+    h4 {
+      margin-top: 0;
+    }
+    #displaylist > div {
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+<h1>Notes:</h1>
+<select style="display: none;"></select>
+<button>Add note</button>
+<div id="notename" style="display: none;">
+  <label for="naam">Naam nieuwe note:</label>
+  <input type="text" id="naam" value="" placeholder="name for new note">
+</div>
+<textarea style="display: none;" placeholder="details on your note"></textarea>
+<hr>
+<div id="noteslist" style="display: none;">
+  <h2>Notes list</h2>
+  <hr>
+  <div id="displaylist"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Een paragraaf met lijst en knoppen</title>
+    <style>
+        p, li, button {
+            font-size: 2rem;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", init);
+        function init() {
+            let para = document.querySelector("p");
+            let buttonOne = document.getElementById("one");
+            let buttonFour = document.getElementById("four");
+            para.addEventListener("click", paraHandler1);
+            para.addEventListener("click", paraHandler2);
+            buttonOne.addEventListener("click", oneHandler);
+            buttonFour.addEventListener("click", fourHandler);
+            let theDiv = document.getElementById("div");
+            theDiv.addEventListener("click", divFunctie);
+
+
+            let aFive = document.getElementById("five");
+            aFive.addEventListener("click", fiveHandler);
+        }
+        function divFunctie(event) {
+            if (event.target.nodeName !== "BUTTON") {
+                alert("Geklikt in div");
+            }
+        }
+
+        function paraHandler1(event) {
+            console.log("Dit is paraHandler1");
+        }
+
+        function paraHandler2(event) {
+            if (event.target.nodeName === "BUTTON") {
+                console.log("Dit is paraHandler2");
+            }
+        }
+
+        function oneHandler(event) {
+            console.log("Dit is oneHandler");
+        }
+
+        function fourHandler(event) {
+            console.log("Dit is fourHandler");
+            event.stopPropagation();
+        }
+
+        function fiveHandler(event) {
+            console.log("Dit is fiveHandler");
+            event.preventDefault();
+        }
+    </script>
+</head>
+<body>
+<div id="div">
+    <p>Maak je keuze uit onderstaande menu:<br><br><br>
+        De eerste keuze vind je
+        <button id="one">hier</button>
+        <br><br>
+        De tweede keuze vind je
+        <button id="two">hier</button>
+        <br><br>
+        De derde keuze vind je
+        <button id="three">hier</button>
+        <br><br>
+        De vierde keuze vind je
+        <button id="four">hier</button>
+        <br><br>
+        De vijfde keuze vind je <a id="five" href="https://eloquentjavascript.net/">hier</a>
+    </p>
+</div>
+
+</body>
+</html>

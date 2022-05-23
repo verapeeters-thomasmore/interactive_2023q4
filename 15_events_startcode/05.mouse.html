@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse events</title>
+    <style>
+        p { font-size: 2em; }
+    </style>
+</head>
+<body>
+<div id="dierenwereld">
+    <p id="konijn">Konijnen lusten wel eens een snoepje.
+        De dieren zijn namelijk gek op zoethout.
+        Dat bevat een zoetstof die dertig tot vijftig keer sterker is dan suiker.
+        Het wordt dan ook gebruikt om snoepjes te maken.
+        Maar helaas moeten konijnen ervan afblijven, omdat ze de suikers niet kunnen verteren.</p>
+    <p id="kip">De linkerbil van een kip is zachter dan de rechterbil.
+        Kippen gebruiken hun rechterpoot vaker en daardoor zijn de spieren sterker ontwikkeld.</p>
+    <p id="albatros">Een albatros moet slechts één keer op enkele jaren landen om te broeden.
+        Het dier kan liefst honderdduizenden kilometers afleggen per vlucht.</p>
+    <p id="allidator">Sommige Chinese en Amerikaanse alligators overleven de winter door hun hoofd in ijs te bevriezen.
+        Enkel hun neus steekt eruit om te blijven ademen.</p>
+    <p id="dolfijn">Dolfijnen slapen altijd maar half.
+        Zo slaapt slechts één hersenhelft en is maar één oog gesloten.</p>
+</div>
+<script>
+    function mouseUp(event) {
+        console.log("mouseup trad op bij " + event.target.id);
+    }
+    function mouseDown(event) {
+        console.log("mousedown trad op bij " + event.target.id);
+    }
+    function click(event) {
+        console.log("click trad op bij " + event.target.id);
+        if (event.target.id=="dierenwereld") {
+            console.log("Xwindow = " + event.clientX + " , Ywindow = " + event.clientY);
+            console.log("Xdoc = " + event.pageX + " , Ydoc = " + event.pageY);
+        }
+    }
+    function dblClick(event) {
+        console.log("dblclick trad op bij " + event.target.id);
+    }
+
+    let wElt = document.getElementById("dierenwereld");
+    wElt.addEventListener("mouseup", mouseUp);
+    wElt.addEventListener("mousedown", mouseDown);
+    wElt.addEventListener("click", click);
+    wElt.addEventListener("dblclick", dblClick);
+    let pArr = Array.from(document.getElementsByTagName("p"));
+    for (let p of pArr) {
+        p.addEventListener("mouseup", mouseUp);
+        p.addEventListener("mousedown", mouseDown);
+        p.addEventListener("click", click);
+        p.addEventListener("dblclick", dblClick);
+    }
+</script>
+</body>
+</html>

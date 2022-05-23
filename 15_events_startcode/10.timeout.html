@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Timers en debouncing</title>
+    <style>
+        span, textarea {
+            font-size: 2em;
+            display: inline-block;
+            margin-left: 20px;
+        }
+        #boom {
+            color: red;
+        }
+        #canvas {
+            height: 400px;
+            background: beige;
+        }
+    </style>
+</head>
+<body>
+<span>Zal de bom ontploffen?</span>
+<span id="boom"></span>
+<hr>
+<span id="clock"></span>
+<hr>
+<textarea placeholder="Tik hier iets" rows="5"></textarea>
+<span id="typed"></span>
+<hr>
+<div id="canvas"></div>
+<span id="positie"></span>
+<script>
+    let bombTimer = setTimeout(() => {
+        document.getElementById("boom").textContent = "BOOM! zei de bom";
+    }, 500);
+
+    if (Math.random() < 0.5) {
+        clearTimeout(bombTimer);
+    }
+
+
+    let ticks = 0;
+    let clock = setInterval(() => {
+        document.getElementById("clock").textContent = ticks + " sec";
+        ticks++;
+        if (ticks == 25) {
+            clearInterval(clock);
+            document.getElementById("clock").textContent = "klok gestopt";
+        }
+    }, 200);
+
+
+    let textarea = document.querySelector("textarea");
+    let typed = document.getElementById("typed");
+    let timeout;
+    textarea.addEventListener("input", () => {
+        typed.textContent = "";
+        clearTimeout(10.);
+        10. = setTimeout(() => {
+            typed.textContent = "Je hebt getikt";
+        }, 500);
+    });
+
+
+    let canvas = document.getElementById("canvas");
+    let positie = document.getElementById("positie");
+    let scheduled = null;
+    canvas.addEventListener("mousemove", event => {
+       if (!scheduled) {
+           setTimeout(() => {
+               positie.textContent = `Muispositie = ${scheduled.pageX}, ${scheduled.pageY}`;
+               scheduled = null;
+           }, 250);
+       }
+       scheduled = event;
+    });
+</script>
+</body>
+</html>

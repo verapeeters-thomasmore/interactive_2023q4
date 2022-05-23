@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Focus events</title>
+    <style>
+        label, input, span.left {
+            font-size: 2em;
+            display: inline-block;
+        }
+        label, span.left {
+            width: 200px;
+            text-align: right;
+            margin-right: 20px;
+        }
+        span
+    </style>
+</head>
+<body>
+<form>
+    <p>
+        <label for="name">Naam : </label>
+        <input type="text" id="name" data-help="Vul hier je volledige naam in" placeholder="naam">
+    </p>
+    <p>
+        <label for="age">Leeftijd : </label>
+        <input type="number" min="18" max="100" step="1" id="age" data-help="Jouw leeftijd in jaren" placeholder="leeftijd">
+    </p>
+    <p>
+        <span class="left"></span>
+        <span id="help"></span>
+    </p>
+</form>
+<script>
+    let help = document.querySelector("#help");
+    let fields = document.querySelectorAll("input");
+    for (let field of Array.from(fields)) {
+        field.addEventListener("focus", event => {
+            let text = event.target.getAttribute("data-help");
+            help.textContent = text;
+        });
+        field.addEventListener("blur", event => {
+            help.textContent = "";
+        });
+    }
+</script>
+</body>
+</html>

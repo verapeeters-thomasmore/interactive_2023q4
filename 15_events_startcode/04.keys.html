@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key events</title>
+    <style>
+        p { font-size: 2em; }
+    </style>
+</head>
+<body>
+<p>Deze paragraaf wordt rood als je de R indrukt.</p>
+<script>
+    let elt = document.querySelector("p");
+    window.addEventListener("keydown", event => {
+        console.log(event.key + " + shift:" + event.shiftKey + " ctrl:" + event.ctrlKey);
+        if ((event.key=="r" || event.key=="R") && event.ctrlKey) {
+            elt.style.backgroundColor = "yellow";
+        } else if (event.key=="r") {
+            elt.style.backgroundColor = "orange";
+        } else if (event.key=="R") {
+            elt.style.backgroundColor = "red";
+        }
+    });
+    window.addEventListener("keyup", event => {
+        console.log(event.key + " + " + event.shiftKey);
+        if (event.key=="r" || event.key=="R") {
+            elt.style.backgroundColor = "";
+        }
+    });
+</script>
+</body>
+</html>
