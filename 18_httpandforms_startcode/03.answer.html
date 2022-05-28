@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form antwoord</title>
+    <style>
+        div > span {
+            display: inline-block;
+            font-size: 1.5em;
+            width: 100px;
+            padding: 5px;
+            font-style: italic;
+        }
+        span + span {
+            font-style: normal;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Het antwoord</h1>
+<div></div>
+<script>
+    let div = document.querySelector("div");
+    Object.getOwnPropertyNames(localStorage).forEach(
+        function (key) {
+            add(key, localStorage.getItem(key));
+            localStorage.removeItem(key);
+        }
+    );
+
+    function add(key, val) {
+        let divNode = document.createElement("div");
+        let spanKey = document.createElement("span");
+        let spanVal = document.createElement("span");
+        spanKey.innerText = key;
+        spanVal.innerText = val;
+        divNode.appendChild(spanKey);
+        divNode.appendChild(spanVal);
+        div.appendChild(divNode);
+    }
+</script>
+</body>
+</html>

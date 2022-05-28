@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>local storage</title>
+</head>
+<body>
+<button onClick="showCounter()">KLIK HIER</button>
+</body>
+
+<script>
+    const refreshCounter = 1 + Number(localStorage.getItem("refreshCounter")) || 0;
+    let clickCounter = Number(localStorage.getItem("clickCounter"));
+    localStorage.setItem("refreshCounter", refreshCounter);
+
+    function showCounter() {
+        clickCounter++;
+        localStorage.setItem("clickCounter", clickCounter);
+        const message = `Wat wens je? \n` +
+            `Je hebt al ${clickCounter} keer geklikt! \n`+
+            `Je hebt al ${refreshCounter} keer gerefreshed!`;
+        alert(message);
+    }
+</script>
+
+</html>

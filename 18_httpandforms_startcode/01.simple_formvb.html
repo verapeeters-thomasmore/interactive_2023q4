@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Een formulier</title>
+    <style>
+        div, button, hr {
+            margin-top: 40px;
+        }
+
+        button {
+            margin-left: 260px;
+        }
+
+        label, input, select, textarea {
+            font-size: 2rem;
+            display: inline-block;
+        }
+
+        button, input[type=button] {
+            font-size: 1.5em;
+            padding: 0.25em 0.5em;
+        }
+
+        label {
+            width: 240px;
+            margin-right: 20px;
+            text-align: right;
+            vertical-align: top;
+        }
+
+        input[type="checkbox"] {
+            margin-left: 260px;
+        }
+
+        input + label {
+            width: auto;
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+
+        .error {
+            color: red;
+            font-size: 1.5em;
+            margin-left: 20px;
+        }
+
+        .info {
+            color: green;
+            font-size: 1.5em;
+            margin-left: 20px;
+        }
+
+        br + input {
+            margin-left: 264px;
+            margin-top: 10px;
+        }
+
+        input#diploma {
+            margin-left: 10px;
+            font-size: 1.5em;
+            color: green;
+        }
+
+        input#diploma::before {
+            margin-right: 20px;
+        }
+
+        textarea {
+            width: 500px;
+            height: 100px;
+        }
+
+        input + pre {
+            width: 500px;
+            vertical-align: top;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<form method="GET">
+    <div>
+        <label for="naam">Naam :</label>
+        <input type="text" id="naam" name="name">
+        <span class="error" id="nameerror"></span>
+    </div>
+    <hr>
+    <button type="submit">Verzenden</button>
+</form>
+
+<script>
+    let form = document.querySelector("form");
+    for (let i = 0; i <form.elements.length; i++) {
+        console.log(form.elements[i]);
+    }
+
+    form.addEventListener("submit", event => {
+        console.log("submit!");
+        console.log(form.elements.name.value);
+
+    });
+
+</script>
+</body>
+</html>

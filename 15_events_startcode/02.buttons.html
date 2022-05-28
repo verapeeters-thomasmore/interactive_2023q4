@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events voorbeelden</title>
+    <style>
+        button {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+<button id="eerste" onclick="alert('Eerste button geklikt');">Eerste button</button>
+<br><br>
+<button id="tweede">Tweede button</button>
+<script>
+    let eersteButton = document.getElementById("eerste");
+    let tweedeButton = document.getElementById("tweede");
+
+    function eersteListener() {
+        return () => alert("Tweede button geklikt");
+    }
+
+    tweedeButton.addEventListener("click", eersteListener);
+    tweedeButton.addEventListener("click", once);
+    tweedeButton.addEventListener("click", laatste)
+
+    function laatste() {
+        alert("Laatste alert voor deze knop");
+        tweedeButton.removeEventListener("click", eersteListener);
+        tweedeButton.removeEventListener("click", laatste);
+        eersteButton.removeAttribute("onclick");
+    }
+
+
+    function once(event) {
+        console.log("Tweede button geklikt");
+        console.log(event);
+        console.log(event.target.tagName + " " + event.target.id + " -> " + event.type);
+        tweedeButton.removeEventListener("click", once)
+    }
+</script>
+</body>
+</html>

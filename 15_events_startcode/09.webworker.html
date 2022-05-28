@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Een webworker</title>
+    <style>
+        label, input, textarea, span {
+            font-size: 2em;
+            display: inline-block;
+        }
+        label {
+            width: 200px;
+            text-align: right;
+            vertical-align: top;
+            margin-right: 20px;
+        }
+        span {
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <p>
+        <label for="getal">Getal : </label>
+        <input type="text" id="getal" placeholder="een getal">
+        <span id="square"></span>
+    </p>
+    <p>
+        <label for="tekst">Opmerking : </label>
+        <textarea id="tekst" rows="10" placeholder="opmerkingen"></textarea>
+    </p>
+    <p>
+        <label for="getal-main">Getal : </label>
+        <input type="text" id="getal-main" placeholder="een getal">
+        <span id="square-main"></span>
+    </p>
+</form>
+<script>
+    let square = document.getElementById("square");
+    let squareWorker = new Worker("js/squareworker.js");
+    squareWorker.addEventListener("message", event => {
+        let text = "The worker responded : " + event.data;
+        square.textContent = text;
+    });
+
+    let getal = document.getElementById("getal");
+    getal.addEventListener("blur", event => {
+        square.textContent = "";
+        squareWorker.postMessage(getal.value);
+    });
+
+    let squareMain = document.getElementById("square-main");
+    let getalMain = document.getElementById("getal-main");
+    getalMain.addEventListener("blur", event => {
+        squareMain.textContent = "";
+        // imiteer een lange bewerking in het main script
+        var currentTime = new Date().getTime();
+        while (currentTime + 10000 >= new Date().getTime()) {
+        }
+        let text = "The worker responded : " + getalMain.value * getalMain.value;
+        squareMain.textContent = text;
+    });
+</script>
+</body>
+</html>
