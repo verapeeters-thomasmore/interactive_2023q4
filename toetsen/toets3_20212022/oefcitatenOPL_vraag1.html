@@ -11,6 +11,19 @@
         button {
             font-size: 16px;
         }
+
+        .citaat {
+            font-size: 24px;
+            padding: 8px;
+            margin: 8px;
+            border: solid 1px lightgrey;
+        }
+
+        .citatenOver {
+            font-size: 24px;
+            text-align: right;
+
+        }
     </style>
 </head>
 <body>
@@ -21,6 +34,10 @@
 <button id="who" onclick="addAuthor();">Van wie is dit citaat?</button>
 <button id="next" onclick="more();">Volgende citaat</button>
 <footer id="footer"></footer>
+<button id="show" onclick="showAll();">toon overblijvende citaten</button>
+<div id="allCitaten"></div>
+<div id="info" class="citatenOver"/>
+
 <script>
     const CITATEN = [
         {
@@ -89,9 +106,14 @@
     const footer = document.getElementById("footer");
     const who = document.getElementById("who");
     const next = document.getElementById("next");
+    const showEl = document.getElementById("show");
+    const allCitatenEl = document.getElementById("allCitaten");
+    const infoEl = document.getElementById("info");
     let shown = [...CITATEN];
     let selectedIndex;
     let selectedCitaat;
+    let overblijvendeCitatenShown = false;
+
     const addAuthor = function () {
         // <footer>
         //     <p>
@@ -126,28 +148,45 @@
         next.style.display = "block";
     };
 
-    const more = function () {
+    const more = function (givenIndex) {
         quote.innerHTML = "";
         footer.innerHTML = "";
         footer.style.display = "none";
-        showNr();
+        showNr(givenIndex);
     }
 
-    const showNr = function () {
-        //tussen 0 en 1, bv. 0.54 * 10 = 5.4
-        //stel het getal 3 gekozen
-        selectedIndex = Math.floor((shown.length) * Math.random())
+    const showNr = function (givenIndex) {
+        console.log("shownr", givenIndex, shown)
+        if (shown.length === 0) {
+            quote.appendChild(document.createTextNode("De citaten zijn op"));
+            next.style.display = "none";
+            return;
+        }
+        selectedIndex = givenIndex ?? Math.floor((shown.length) * Math.random())
         selectedCitaat = shown[selectedIndex]
         quote.appendChild(document.createTextNode(selectedCitaat.text));
-        // filter het geselecteerde citaat uit de array shown
         shown = shown.filter((citaat, index) => index !== selectedIndex)
-        //als alle 10 citaten getoond zijn, dan is shown leeg en moet je die terug vullen
-        if (shown.length === 0) {
-            shown = [...CITATEN]
-        }
         who.style.display = "block";
         next.style.display = "none";
+
+        infoEl.innerHTML = `er zijn nog ${shown.length} citaten over`;
+        if (overblijvendeCitatenShown) showAll()
+
     }
+
+    function showAll() {
+        overblijvendeCitatenShown = true;
+        allCitatenEl.innerHTML = "";
+        shown.forEach((c, i) => {
+                const citaatEl = document.createElement("div");
+                citaatEl.addEventListener("click", () => more(i))
+                citaatEl.className = "citaat";
+                citaatEl.innerHTML = c.text;
+                allCitatenEl.appendChild(citaatEl);
+            }
+        )
+    }
+
     showNr();
 </script>
 </body>
