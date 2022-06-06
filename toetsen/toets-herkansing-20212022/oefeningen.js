@@ -122,3 +122,16 @@ const CITATEN = [
 ];
 
 console.log({CITATEN});
+
+function citatenSameAuthor(citaten, index) {
+    return citaten.filter(c => c.author === CITATEN[index].author && c.text !== CITATEN[index].text).map(c => c.text);
+}
+
+console.log("### zelfde auteur als citaat 0 (Da Vinci)")
+console.log(citatenSameAuthor(CITATEN, 0));
+console.log("### zelfde auteur als citaat 1 (Einstein)")
+console.log(citatenSameAuthor(CITATEN, 1));
+console.log("### zelfde auteur als citaat 2 (Confucius)")
+console.log(citatenSameAuthor(CITATEN, 2));
+
+
