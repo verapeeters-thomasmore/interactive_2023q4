@@ -11,6 +11,11 @@
         button {
             font-size: 16px;
         }
+
+        .otherquotes {
+            text-align: right;
+            font-size: 24px;
+        }
     </style>
 </head>
 <body>
@@ -20,6 +25,7 @@
 <hr>
 <button id="who" onclick="addAuthor();">Van wie is dit citaat?</button>
 <button id="next" onclick="more();">Volgende citaat</button>
+<div id="otherquotes" class="otherquotes"></div>
 <footer id="footer"></footer>
 <script>
     let CITATEN = [
@@ -145,6 +151,7 @@
         },
     ];
     const quote = document.getElementById("quote");
+    const otherquotes = document.getElementById("otherquotes");
     const footer = document.getElementById("footer");
     const who = document.getElementById("who");
     const next = document.getElementById("next");
@@ -206,6 +213,7 @@
     const showNr = function () {
         //tussen 0 en 1, bv. 0.54 * 10 = 5.4
         //stel het getal 3 gekozen
+        console.log({shown})
         selectedIndex = Math.floor((shown.length) * Math.random())
         selectedCitaat = shown[selectedIndex]
         quote.appendChild(document.createTextNode(selectedCitaat.text));
@@ -217,6 +225,7 @@
         }
         who.style.display = "block";
         next.style.display = "none";
+        showNext(selectedIndex);
     }
 
     function addPeriod() {
@@ -228,6 +237,15 @@
         }
 
         CITATEN = CITATEN.map(c => ({...c, period: getPeriod(c)}));
+    }
+
+    function showNext(nr) {
+        otherquotes.innerHTML = "";
+        const newBlockEl = document.createElement("blockquote");
+        newBlockEl.id = "quote2";
+        otherquotes.appendChild(newBlockEl);
+        newBlockEl.appendChild(document.createTextNode(shown[nr>=shown.length ? 0 : nr].text));
+
     }
 
     console.log({CITATEN});
