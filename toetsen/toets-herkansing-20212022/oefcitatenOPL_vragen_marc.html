@@ -25,7 +25,9 @@
 <hr>
 <button id="who" onclick="addAuthor();">Van wie is dit citaat?</button>
 <button id="next" onclick="more();">Volgende citaat</button>
+<button id="zelfAuteur" onclick="citatenFromAuthor();">Citaten van dezelfde auteur</button>
 <div id="otherquotes" class="otherquotes"></div>
+<div id="quotesSameAuthor" class="otherquotes"></div>
 <footer id="footer"></footer>
 <script>
     let CITATEN = [
@@ -152,6 +154,7 @@
     ];
     const quote = document.getElementById("quote");
     const otherquotes = document.getElementById("otherquotes");
+    const quotesSameAuthor = document.getElementById("quotesSameAuthor");
     const footer = document.getElementById("footer");
     const who = document.getElementById("who");
     const next = document.getElementById("next");
@@ -207,6 +210,7 @@
         quote.innerHTML = "";
         footer.innerHTML = "";
         footer.style.display = "none";
+        quotesSameAuthor.innerHTML = "";
         showNr();
     }
 
@@ -244,8 +248,22 @@
         const newBlockEl = document.createElement("blockquote");
         newBlockEl.id = "quote2";
         otherquotes.appendChild(newBlockEl);
-        newBlockEl.appendChild(document.createTextNode(shown[nr>=shown.length ? 0 : nr].text));
+        newBlockEl.appendChild(document.createTextNode(shown[nr >= shown.length ? 0 : nr].text));
+    }
 
+    function citatenFromAuthor() {
+        quotesSameAuthor.innerHTML = "";
+        const citatenFromSameAuthor = CITATEN.filter(c => c.author === selectedCitaat.author);
+        console.log(citatenFromSameAuthor);
+        const h2El = document.createElement("blockquote");
+        h2El.style.fontWeight= "bold";
+        h2El.appendChild(document.createTextNode("Citaten van dezelfde auteur"));
+        quotesSameAuthor.appendChild(h2El)
+        citatenFromSameAuthor.forEach(c => {
+            const newBlockEl = document.createElement("blockquote");
+            quotesSameAuthor.appendChild(newBlockEl);
+            newBlockEl.appendChild(document.createTextNode(c.text))
+        })
     }
 
     console.log({CITATEN});
