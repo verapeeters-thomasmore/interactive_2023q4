@@ -127,11 +127,36 @@ function citatenSameAuthor(citaten, index) {
     return citaten.filter(c => c.author === CITATEN[index].author && c.text !== CITATEN[index].text).map(c => c.text);
 }
 
-console.log("### zelfde auteur als citaat 0 (Da Vinci)")
+console.log("----- zelfde auteur als citaat 0 (Da Vinci)")
 console.log(citatenSameAuthor(CITATEN, 0));
-console.log("### zelfde auteur als citaat 1 (Einstein)")
+console.log("----- zelfde auteur als citaat 1 (Einstein)")
 console.log(citatenSameAuthor(CITATEN, 1));
-console.log("### zelfde auteur als citaat 2 (Confucius)")
+console.log("----- zelfde auteur als citaat 2 (Confucius)")
 console.log(citatenSameAuthor(CITATEN, 2));
 
+function citatenWithKeyword(citaten, keyword) {
+    return citaten.filter(c => c.text.toLocaleLowerCase().includes(keyword.toLocaleLowerCase())).map(c => `${c.text} (door ${c.author})`);
+}
 
+console.log("----- citaten met keyword onze");
+console.log(citatenWithKeyword(CITATEN, "over"));
+console.log("----- citaten met keyword hoe");
+console.log(citatenWithKeyword(CITATEN, "hoe"));
+
+function citaatFormatted(citaten, index, maxLength = 50) {
+    return ( {
+        text: `${citaten[index]?.text.substr(0, maxLength) || "bestaat niet"}${citaten[index]?.text.length > maxLength ? "..." : ""}`,
+        author: citaten[index]?.author
+    });
+}
+
+console.log("----- citaat 12 formatted default");
+console.log(citaatFormatted(CITATEN, 12));
+console.log("----- citaat 12 formatted max 10");
+console.log(citaatFormatted(CITATEN, 12, 10));
+console.log("----- citaat 0 formatted default");
+console.log(citaatFormatted(CITATEN, 0));
+console.log("----- citaat 5 formatted max 30");
+console.log(citaatFormatted(CITATEN, 5, 30));
+console.log("----- citaat 55 formatted default");
+console.log(citaatFormatted(CITATEN, 55));
