@@ -43,3 +43,12 @@ const fietstochten = [
     }
 ]
 
+console.table([...fietstochten].sort((a, b) => b.aantalKm - a.aantalKm));
+
+function gemeenschappelijkeVriendinnen(fietstocht1, fietstocht2) {
+    return fietstocht1.fietsvriendinnen.filter(v => fietstocht2.fietsvriendinnen.indexOf(v) >= 0);
+}
+
+console.log(gemeenschappelijkeVriendinnen(fietstochten[0], fietstochten[1]))
+console.log(gemeenschappelijkeVriendinnen(fietstochten[1], fietstochten[3]))
+console.log(gemeenschappelijkeVriendinnen(fietstochten[4], fietstochten[3]))
