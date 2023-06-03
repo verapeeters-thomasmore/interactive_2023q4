@@ -208,18 +208,6 @@ function getCitaten(maxLength) {
     return CITATEN.filter(c => c.text.length <= maxLength)
 }
 
-//TEST
-// console.table(getCitaten(50)) //50-50 - 3 items
-// console.table(getCitaten(60)) //60-60 - 8 items
-// console.table(getCitaten(90)) //90-90 - 14 items
-// console.table(getCitaten(300)) //300-300 - 20 items
-// console.table(getCitaten()) //undefined-50 - 3 items
-// console.table(getCitaten(true)) //true-50 - 3 items
-// console.table(getCitaten(66.6)) //66.6-50 - 3 items
-// console.table(getCitaten("60")) //60-50 - 3 items
-// console.table(getCitaten(20)) //20-50 - 3 items
-// console.table(getCitaten(0)) //0-50 - 3 items
-
 function addCitaten(citaat) {
     return {
         ...citaat,
@@ -229,9 +217,24 @@ function addCitaten(citaat) {
 }
 
 console.log("start addCitaten")
-//TEST
-console.log(addCitaten(CITATEN[1])); //3 citaten
-console.log(addCitaten(CITATEN[3])); //0 citaten
 
 console.log("showNr")
 showNr();
+
+
+
+console.log("================================")
+console.log("50-50 - 3 items", getCitaten(50));
+console.log("60-60 - 8 items", getCitaten(60));
+console.log("90-90 - 14 items", getCitaten(90));
+console.log("300-300 - 20 items", getCitaten(300));
+console.log("undefined-50 - 3 items", getCitaten());
+console.log("true-50 - 3 items", getCitaten(true));
+console.log("66.6-50 - 3 items", getCitaten(66.6));
+console.log("\"60\"-50 - 3 items", getCitaten("60"));
+console.log("20-50 - 3 items", getCitaten(20));
+console.log("0-50 - 3 items", getCitaten(0));
+console.log("================================")
+console.log(addCitaten(CITATEN[1])); //3 citaten
+console.log(addCitaten(CITATEN[3])); //0 citaten
+
