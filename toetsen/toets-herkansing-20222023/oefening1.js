@@ -44,10 +44,36 @@ const fietstochten = [
 ]
 
 function tochtenVanVriendin(vriendin) {
- return fietstochten.filter(tocht => tocht.fietsvriendinnen.includes(vriendin))
+    return fietstochten.filter(tocht => tocht.fietsvriendinnen.includes(vriendin))
 }
 
 console.table(tochtenVanVriendin("Bea"));
 console.table(tochtenVanVriendin("Anne"));
 console.table(tochtenVanVriendin("blabla"));
 
+// console.log("=================================================")
+//
+// function alleVriendinnen() {
+//     return [...new Set([].concat(...fietstochten.map(tocht => tocht.fietsvriendinnen)))];
+// }
+//
+// console.log(alleVriendinnen())
+
+console.log("=================================================")
+
+function tochtenSnellerDan(snelheid) {
+    return fietstochten.filter(tocht => tocht.gemiddeldeSnelheid >= snelheid);
+}
+
+console.table(tochtenSnellerDan(22));
+console.table(tochtenSnellerDan(25));
+console.table(tochtenSnellerDan(26));
+
+console.log("=================================================")
+
+function vriendinnenSnellerDan(snelheid) {
+    return [...new Set([].concat(...tochtenSnellerDan(snelheid).map(tocht => tocht.fietsvriendinnen)))];
+}
+
+console.log(vriendinnenSnellerDan(22));
+console.log(vriendinnenSnellerDan(25));
