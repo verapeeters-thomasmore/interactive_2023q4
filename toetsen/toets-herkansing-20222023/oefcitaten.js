@@ -124,6 +124,8 @@ const CITATEN = [
 const quote = document.getElementById("quote");
 const footer = document.getElementById("footer");
 const who = document.getElementById("who");
+const answer = document.getElementById("answer");
+const check = document.getElementById("check");
 const next = document.getElementById("next");
 let shown = [...CITATEN];
 let selectedIndex;
@@ -159,6 +161,8 @@ const addAuthor = function () {
     footer.appendChild(infoNewEl);
     footer.style.display = "block";
     who.style.display = "none";
+    answer.style.display = "none";
+    check.style.display = "none";
     next.style.display = "block";
 };
 
@@ -182,6 +186,8 @@ const showNr = function () {
         shown = [...CITATEN]
     }
     who.style.display = "block";
+    answer.style.display = "inline";
+    check.style.display = "inline";
     next.style.display = "none";
 }
 showNr();
