@@ -43,3 +43,11 @@ const fietstochten = [
     }
 ]
 
+function tochtenVanVriendin(vriendin) {
+ return fietstochten.filter(tocht => tocht.fietsvriendinnen.includes(vriendin))
+}
+
+console.table(tochtenVanVriendin("Bea"));
+console.table(tochtenVanVriendin("Anne"));
+console.table(tochtenVanVriendin("blabla"));
+
