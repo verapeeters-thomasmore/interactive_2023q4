@@ -190,4 +190,15 @@ const showNr = function () {
     check.style.display = "inline";
     next.style.display = "none";
 }
+
+const checkAnswer = function () {
+    const answerString = answer.value;
+    const correct = selectedCitaat.author === answerString;
+    const message = correct ? `${answerString} is correct!` : `${answerString} is niet juist...`;
+    const infoAnswer = document.createElement("p");
+    infoAnswer.appendChild(document.createTextNode(message));
+    footer.appendChild(infoAnswer);
+    if (correct) addAuthor();
+}
+
 showNr();
