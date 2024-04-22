@@ -55,7 +55,7 @@
     getalMain.addEventListener("blur", event => {
         squareMain.textContent = "";
         // imiteer een lange bewerking in het main script
-        var currentTime = new Date().getTime();
+        let currentTime = new Date().getTime();
         while (currentTime + 10000 >= new Date().getTime()) {
         }
         let text = "The worker responded : " + getalMain.value * getalMain.value;
