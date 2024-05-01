@@ -1,17 +1,18 @@
 //------------------------------------------
-const macht = (basis, exponent) => {
+const power = (base, exponent) => {
     let result = 1;
     for (let count = 0; count < exponent; count++) {
-        result *= basis;
+        result *= base;
     }
     return result;
 }
-console.log(macht(5,3));
+console.log(power(5,3));
 
-let tweedemacht = (x) => { return x * x; };
-console.log(tweedemacht(4));
-tweedemacht = x => x * x;
-console.log(tweedemacht(16));
+let powerOf2 = (x) => { return x * x; };
+console.log(powerOf2(4));
+//shorter:
+powerOf2 = x => x * x;
+console.log(powerOf2(16));
 
 //------------------------------------------
 let hoorn = () => {
@@ -19,6 +20,7 @@ let hoorn = () => {
 }
 hoorn();
 
+//shorter:
 hoorn = () => console.log("Tuuuuuuuuuuttt!");
 hoorn();
 
