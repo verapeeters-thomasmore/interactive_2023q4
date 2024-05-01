@@ -26,36 +26,47 @@
     <div id="result" class="alert alert-primary"></div>
 </div>
 <script>
+
     function calculatePenalty(allowed, measured) {
-
-
         const tooFast = measured - allowed;
-        if (tooFast <= 0)
-            return 0;
-        if (allowed <= 50 && tooFast >= 11 && tooFast <= 30)
-            return 50 + (tooFast - 10) * 10;
-        if (allowed > 50 && tooFast >= 11 && tooFast <= 40)
-            return 50 + (tooFast - 10) * 5;
-        if (allowed <= 50 && tooFast > 30 || allowed > 50 && tooFast > 40)
-            return -1;
-        return 50;
+        let penalty;
+        if (allowed <= 50 && tooFast >= 11 && tooFast <= 30) {
+            penalty = 50 + (tooFast - 10) * 10;
+        } else if (allowed > 50 && tooFast >= 11 && tooFast <= 40) {
+            penalty = 50 + (tooFast - 10) * 5;
+        } else if (allowed <= 50 && tooFast > 30 || allowed > 50 && tooFast > 40) {
+            penalty = -1;
+        } else penalty = 50;
+        return penalty;
+    }
+
+    function getMessage(allowedSpeedEl, measureSpeedEl) {
+        if (!allowedSpeedEl || !measureSpeedEl)
+            return "geef 2 keer een getal op";
+
+        const allowedSpeed = Number(allowedSpeedEl);
+        const measuredSpeed = Number(measureSpeedEl);
+        if (isNaN(allowedSpeed) || isNaN(measuredSpeed))
+            return "je mag enkel getallen gebruiken";
+
+        const tooFast = measuredSpeed - allowedSpeed;
+        //3 speciale gevallen:
+        if (tooFast <= 0) return "voorbeeldige chauffeur";
+        if (allowedSpeed <= 50 && tooFast > 30) return "politierechtbank";
+        if (allowedSpeed > 50 && tooFast > 40) return "politierechtbank";
+
+        let penalty = 50;
+        if (11 <= tooFast) {
+            const extraPenaltyPerKmTooFast = (allowedSpeed <= 50) ? 10 : 5;
+            penalty += (tooFast - 10) * extraPenaltyPerKmTooFast;
+        }
+        return `boete bedraagt ${penalty} euro.`;
     }
 
     function messagePenalty() {
-        let message;
-        let penalty = 0;
-        const allowedSpeedEl = (document.getElementById("allowedSpeed").value);
-        const measureSpeedEl = (document.getElementById("measureSpeed").value);
-        if (!allowedSpeedEl || !measureSpeedEl)
-            message = "geef 2 keer een getal op";
-        else if (isNaN(Number(parseInt(allowedSpeedEl))) || isNaN(Number(parseInt(measureSpeedEl))))
-            message = "je mag enkel getallen gebruiken";
-        else {
-
-            penalty = calculatePenalty(Number(allowedSpeedEl), Number(measureSpeedEl));
-            message = penalty === 0 ? "voorbeeldige chauffeur" :
-                penalty === -1 ? "politierechtbank" : "boete bedraagt " + penalty + " euro.";
-        }
+        const allowedSpeedValue = document.getElementById("allowedSpeed").value;
+        const measureSpeedValue = document.getElementById("measureSpeed").value;
+        const message = getMessage(allowedSpeedValue, measureSpeedValue);
         document.getElementById("result").innerHTML = message;
     }
 </script>
