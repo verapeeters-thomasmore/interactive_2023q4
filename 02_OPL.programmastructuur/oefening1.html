@@ -27,15 +27,20 @@
     <div id="result" class="alert alert-primary"></div>
 </div>
 <script>
-    function getOrder(number1El, number2El) {
+    //number1El en number2El zijn html-Elements van type input
+    //getMessage returnt een string die getoond kan worden aan de user
+    function getMessage(number1El, number2El) {
+        //precondities check: zijn 2 getallen ingegeven?
         if (!number1El || !number2El)
             return "Vul beide getallen in";
-        if (isNaN(parseFloat(number1El)) || isNaN(parseFloat(number2El)))
-            return "Je mag enkel getallen gebruiken";
         const number1 = Number(number1El);
         const number2 = Number(number2El);
+        if (isNaN(number1) || isNaN(number2))
+            return "Je mag enkel getallen gebruiken";
+
         if (number1 === number2)
             return `${number1} = ${number2}`;
+        //merk op" als de if een return doet is het niet nodig een else te schrijven
         if (number1 < number2)
             return `${number1} < ${number2}`
         return `${number1} > ${number2}`;
@@ -44,7 +49,7 @@
     function order() {
         const number1El = document.getElementById("number1").value;
         const number2El = document.getElementById("number2").value;
-        const message = getOrder(number1El, number2El);
+        const message = getMessage(number1El, number2El);
         document.getElementById("result").innerHTML = message;
     }
 </script>
