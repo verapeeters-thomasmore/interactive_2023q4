@@ -19,7 +19,7 @@
         </div>
         <div class="input-group mb-3">
             <div class="input-group-prepend">
-                <button class="btn btn-outline-primary" type="button" onclick="showMultiplications()">order</button>
+                <button class="btn btn-outline-primary" type="button" onclick="showMultiplications()">show</button>
             </div>
         </div>
     </form>
@@ -28,10 +28,10 @@
 <script>
     function showMultiplications() {
         const baseNumber = document.getElementById("baseNumber").value;
-        let result="";
-        for (i = 1; i <= document.getElementById("amountOfLines").value; i++)
-        {
-            result+= i + " * " + baseNumber + " = " + (i * baseNumber) +"<br>";
+        const amountOfLines = document.getElementById("amountOfLines").value;
+        let result = "";
+        for (let i = 1; i <= amountOfLines; i++) {
+            result += `<div>${i} * ${baseNumber} = ${i * baseNumber}</div>`;
         }
         document.getElementById("result").innerHTML = result;
     }
