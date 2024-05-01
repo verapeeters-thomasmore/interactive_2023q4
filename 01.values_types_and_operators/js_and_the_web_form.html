@@ -25,10 +25,12 @@
     <div id="hello" class="alert alert-primary"></div>
 </div>
 <script>
+    //deze functie wordt opgeroepen als de user op de button klikt
     function sayHello() {
-        const firstNameEl = document.getElementById("firstName");
+        const firstNameInputEl = document.getElementById("firstName");
+        //inputElement.value is de waarde die de user ingetikt heeft in het input element
+        const helloMessage = `Hello ${firstNameInputEl.value}!`;
         const helloEl = document.getElementById("hello");
-        const helloMessage = `Hello ${firstNameEl.value}!`;
         console.log(helloMessage);
         helloEl.innerHTML = helloMessage;
     }
