@@ -9,7 +9,8 @@
 <body>
 <div class="container">
     <h1>Javascript and the web: een button</h1>
-    <div id="count" class="alert alert-primary"></div>
+    <!-- blabla zie je niet in de html - waarom niet? -->
+    <div id="count" class="alert alert-primary">blabla</div>
     <div class="row">
         <div class="col text-center">
             counter 1
@@ -32,13 +33,18 @@
     let counter1 = 0;
     let counter2 = 0;
 
-    function change(index, amount) {
-        if (index === 1) counter1 += amount;
-        if (index === 2) counter2 += amount;
+    function showCounters() {
         const countEl = document.getElementById("count");
         countEl.innerHTML = `counter1 = ${counter1} and counter2 = ${counter2} `
     }
 
+    function change(index, amount) {
+        if (index === 1) counter1 += amount;
+        if (index === 2) counter2 += amount;
+        showCounters();
+    }
+
+    showCounters();
 </script>
 
 </body>

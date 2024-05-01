@@ -12,10 +12,12 @@
     <div id="hello" class="alert alert-primary"></div>
 </div>
 <script>
-        const helloEl = document.getElementById("hello");
-        const helloMessage = `Hello allemaal!`;
-        console.log(helloMessage);
-        helloEl.innerHTML = helloMessage;
+    //we zoeken in het HTML-document een element dat een id-attribute met waarde "hello" heeft
+    //LET OP: binnen een HTML-document moet een id uniek zijn
+    const helloEl = document.getElementById("hello");
+    const helloMessage = `Hello allemaal!`;
+    console.log(helloMessage);
+    helloEl.innerHTML = helloMessage;
 </script>
 </body>
 </html>

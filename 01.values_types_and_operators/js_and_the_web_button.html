@@ -8,14 +8,17 @@
 </head>
 <body>
 <div class="container">
-        <h1>Javascript and the web: een button</h1>
-        <div id="count" class="alert alert-primary"></div>
-        <button class="btn btn-outline-primary" type="button" onclick="count()">Count</button>
+    <h1>Javascript and the web: een button</h1>
+    <!--initieel is de counter altijd 0 - dit is hier hard-coded - is dat de beste oplossing? -->
+    <div id="count" class="alert alert-primary">counter is 0</div>
+    <button class="btn btn-outline-primary" type="button" onclick="count()">Count</button>
 
 </div>
 <script>
+    //dit MOET een let zijn, want we gaan de waarde aanpassen
     let counter = 0;
 
+    //deze functie wordt opgeroepen als de user op de button klikt
     function count() {
         counter++;
         const countEl = document.getElementById("count");
