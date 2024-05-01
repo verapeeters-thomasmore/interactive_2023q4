@@ -1,35 +1,44 @@
+console.log("==============================================")
+console.log("=== 01.programmastructuur.js")
+console.log("==============================================")
+
 console.log("--------- variabelen -----------");
-let paswoord = prompt("Enter paswoord:");
-console.log(paswoord + Math.min(2, 4) + 10);
-console.log(paswoord);
+//prompt opent een browser-specifieke dialog en blokkeert de uitvoering van de code tot de user hier iets ingegeven heeft
+//gebruik dit NOOIT in een echt programma!!!!
+
+//we passen password niet meer aan na deze lijn, dus een const!
+const password = prompt("Enter paswoord:");
+console.log(password + Math.min(2, 4) + 10);
+console.log(password);
 console.log(Number(prompt("Geef een getal:")));
 
 console.log("--------- condities -----------");
 
-let nummer = Number(prompt("Geef een getal:"));
-if (nummer<10) {
-    console.log(nummer + " is een klein getal");
-} else if (nummer<100) {
-    console.log(nummer + " is een gemiddeld getal");
+//we passen number niet meer aan na deze lijn, dus een const!
+const number = Number(prompt("Geef nog een getal:"));
+if (number < 10) {
+    console.log(number + " is een klein getal");
+} else if (number < 100) {
+    console.log(number + " is een gemiddeld getal");
 } else {
-    console.log(nummer + " is een groot getal");
+    console.log(number + " is een groot getal");
 }
 
 console.log("--------- while lus -----------");
 let result = 1;
 let counter = 0;
-while (counter<10) {
+while (counter < 10) {
     result = result * 2;
     counter++;
 }
 console.log(result);
 
 console.log("--------- do lus -----------");
-let jeNaam;
+let yourName;
 do {
-    jeNaam = prompt("Wie ben je?");
-} while (!jeNaam);
-console.log(jeNaam);
+    yourName = prompt("Wie ben je?");
+} while (!yourName);
+console.log(yourName);
 
 console.log("--------- for lus -----------");
 result = 1;
@@ -39,6 +48,7 @@ for (let counter = 0; counter < 10; counter++) {
 console.log(result);
 
 console.log("--------- break -----------");
+//break beter niet gebruiken om de code leesbaarder te houden
 for (let current = 20; ; current++) {
     if (current % 7 == 0) {
         console.log(current);
@@ -54,9 +64,7 @@ switch (prompt("Hoe is het weer?")) {
         weerType = "Het regent vandaag";
         break;
     case "zonnig":
-        /*
-         Het zonnetje schijnt vandaag
-         */
+        /* Het zonnetje schijnt vandaag */
         weerType = "De zon schijnt vandaag";
         break;
     case "bewolkt":
