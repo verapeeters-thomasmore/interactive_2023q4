@@ -8,10 +8,28 @@ console.log(`last index van 4 = ${numbers.lastIndexOf(4)}`);
 
 console.log("------------------------ array immutable methods ---------------------");
 
-let referenceToNumbers = numbers;
-let sliceOfNumbers = numbers.slice();
-console.log(`numbers === referenceToNumbers: ${numbers === referenceToNumbers}`);
-console.log(`numbers === sliceOfNumbers: ${numbers === sliceOfNumbers}`);
+const referenceToNumbers = numbers;
+const sliceOfNumbers = numbers.slice();
+console.log(`numbers === referenceToNumbers: ${numbers === referenceToNumbers}`); // de 2 consts refereren naar hetzelfde "object"
+console.log(`numbers === sliceOfNumbers: ${numbers === sliceOfNumbers}`); //sliceOfNumbers is een nieuw "object"
+
+console.log("------------------------ example of slice ---------------------");
+// const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+// console.log(animals.slice(2)); // Expected output: Array ["camel", "duck", "elephant"]
+// console.log(animals.slice(2, 4)); // Expected output: Array ["camel", "duck"]
+// console.log(animals.slice(1, 5)); // Expected output: Array ["bison", "camel", "duck", "elephant"]
+
+
+console.log("------------------------ example of slice ---------------------");
+const animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+console.log(animals.slice(2));
+// Expected output: Array ["camel", "duck", "elephant"]
+
+console.log(animals.slice(2, 4));
+// Expected output: Array ["camel", "duck"]
+
+console.log(animals.slice(1, 5));
+// Expected output: Array ["bison", "camel", "duck", "elephant"]
 
 console.log("------------------------ array looping methods ---------------------");
 console.log("------------------------ foreach ---------------------");
