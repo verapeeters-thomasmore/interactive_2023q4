@@ -1,6 +1,7 @@
 console.log("-------- arrays --------");
 
-let listOfNumbers = [2, 3, 5, 7, 11];
+//array declaratie:
+const listOfNumbers = [2, 3, 5, 7, 11];
 console.log(listOfNumbers[0]);
 console.log(listOfNumbers[2]);
 
@@ -14,13 +15,29 @@ for (let entry of listOfNumbers) {
     console.log(entry);
 }
 
+console.log("---loop met foreach - met arrow-functie");
+listOfNumbers.forEach((entry) => {
+    console.log(entry);
+});
+
+console.log("---loop met foreach - arrow-functie kortere notatie");
+listOfNumbers.forEach(entry => console.log(entry));
+
+console.log("-------- types, types, types --------");
+console.log("---array can contain different types of elements");
+const listOfAnything = [2, "apen", 5, "beren", 11, "chihuahua"];
+
 console.log("---loop met foreach");
-listOfNumbers.forEach((entry) => {console.log(entry);});
+listOfAnything.forEach((entry) => {
+    console.log(entry);
+});
 
 
-console.log("---assign 1 to listOfNumbers");
-listOfNumbers = 1;
-console.log(listOfNumbers);
+console.log("---assign number to array?");
+let list = [2, 3, 5, 7, 11];
+console.log(list);
+list2OfNumbers = 1;
+console.log(list);
 
-let emptyArray = [];
+const emptyArray = [];
 
