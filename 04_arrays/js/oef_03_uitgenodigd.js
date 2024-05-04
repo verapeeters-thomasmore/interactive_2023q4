@@ -18,12 +18,14 @@ function getMessageCheckInvited(name) {
 }
 
 //UI-functie
-function checkInvited() {
+//toont "<name> is welkom!" of "<name> is niet uitgenodigd."
+//check alleen volledige naam, case-insensitive
+function checkInvitedButton() {
     resultEl.innerHTML = getMessageCheckInvited(nameEl.value);
 }
 
 //UI-functie
-function showAllInvited() {
+function showAllInvitedButton() {
     return resultEl.innerHTML = visitors
         .map(entry => `<li>${entry}</li>`)
         .join("");
@@ -31,20 +33,23 @@ function showAllInvited() {
 
 
 //functionele functie - maakt nieuwe array - dus geen side-effects
-function pushVisitors(name) {
-    //TODO geen push
-    visitors.push(name);
-    console.log(visitors);
+function listWithExtraInvitee(name) {
+    return visitors.concat(name);
 }
 
+function addInvitee(name) {
+    //preconditions:
+    if (!name) return "vul een naam in.";
+    if (isInvited(name)) return `${name} was already invited.`;
+
+    visitors = listWithExtraInvitee(name);
+    return `${name} toegevoegd.`;
+}
 
 //UI-functie
-function addInvitee() {
-    const name = nameEl.value;
-    pushVisitors(name);
-    resultEl.innerHTML = name + " toegevoegd.";
+//check first: name should not be empty and should not be in the list already
+//create a new array and assign it to the visitors variable
+function addInviteeButton() {
+    resultEl.innerHTML = addInvitee(nameEl.value);
 }
 
-
-//en nu ook op console
-(visitors.filter(entry => entry.toLowerCase().startsWith("j"))).forEach(entry => console.log(entry))
