@@ -15,16 +15,17 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Geef naam</span>
             </div>
-            <input type="text" id="name" class="form-control" placeholder="naam">
+            <input type="text" id="name" class="form-control" placeholder="naam" oninput="filterVisitors()">
 
             <div class="input-group mb-3">
-                <button class="btn btn-outline-primary" type="button" onclick="checkInvitedButton()">check</button>
-                <button class="btn btn-outline-primary" type="button" onclick="showAllInvitedButton()">toon genodigden</button>
-                <button class="btn btn-outline-primary" type="button" onclick="addInviteeButton()">nodig uit</button>
+                <button class="btn btn-outline-primary" type="button" onclick="checkVisitorPresentButton()">check</button>
+                <button class="btn btn-outline-primary" type="button" onclick="toggleShowVisitorsButton()">toon genodigden</button>
+                <button class="btn btn-outline-primary" type="button" onclick="addVisitorButton()">nodig uit</button>
             </div>
         </div>
     </form>
-    <div id="result" class="alert alert-primary"></div>
+    <div id="message" class="alert alert-primary"></div>
+    <div id="visitorList" class="alert"></div>
 </div>
 <script src="js/oef_03_uitgenodigd.js"></script>
 
