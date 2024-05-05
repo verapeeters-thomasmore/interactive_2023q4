@@ -1,24 +1,32 @@
-function checkInitCap (woord)
-{
-    return woord[0] === woord[0].toUpperCase();
+function checkInitCap(sentence) {
+    return sentence.split(" ").every(word => word[0] === word.charAt(0).toUpperCase());
 }
 
-/*function check (zin)
-{
-    return zin.split(" ").every(checkInitCap);
-}*/
+//waarom  word.charAt(0) en niet word[0]?
+//probeer dit uit in de console op string ""
 
-function check (zin)
-{
-//het is een => functie met een parameter woord.
-    return zin.split(" ").every(woord => woord[0] === woord[0].toUpperCase());
+
+console.log(checkInitCap("Dit Is Een Zin")); //result true
+console.log(checkInitCap("Dit Is geen Zin")); //result false
+console.log(checkInitCap("woord")); //result false
+console.log(checkInitCap("Woord")); //result true
+console.log(checkInitCap("")); //result false - als dit niet crasht is het ok
+console.log(checkInitCap("0")); //result false - als dit niet crasht is het ok
+
+
+function sentenceWithInitCap(sentence) {
+    return sentence
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ");
+
 }
-console.log(check("Dit Is Een Zin"))
 
-
-function sentenceWithInitCap(zin) {
-    return zin.split(" ").map((woord) =>
-        woord.charAt(0).toUpperCase()+woord.slice(1).toLowerCase()).join(" ");
-
-}
-console.log(sentenceWithInitCap("Dit Is een ZIN"));
+console.log(sentenceWithInitCap("Dit Is Een Zin")); //result Dit Is Een Zin
+console.log(sentenceWithInitCap("dit is een zin")); //result Dit Is Een Zin
+console.log(sentenceWithInitCap("DIT IS EEN ZIN")); //result Dit Is Een Zin
+console.log(sentenceWithInitCap("diT iS EeN zin")); //result Dit Is Een Zin
+console.log(sentenceWithInitCap("woord")); //result Woord
+console.log(sentenceWithInitCap("WOORD")); //result Woord
+console.log(sentenceWithInitCap("WOord")); //result Woord
+console.log(sentenceWithInitCap("")); //result  - als dit niet crasht is het ok
