@@ -1,6 +1,5 @@
-console.log("------------------------  ---------------------");
-
 console.log("------------------------ mutable array methods ---------------------");
+//dit is bij wijze van voorbeeld, we gan GEEN mutable array methods gebruiken in deze cursus!
 
 let todoList = [];
 
