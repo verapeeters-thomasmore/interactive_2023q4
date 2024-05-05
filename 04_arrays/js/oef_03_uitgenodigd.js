@@ -64,6 +64,8 @@ function addInvitee(name) {
 //create a new array and assign it to the visitors variable
 function addVisitorButton() {
     messageEl.innerHTML = addInvitee(nameEl.value);
+    nameEl.value = "";
+    filterVisitors();
 }
 
 function filterVisitors() {
