@@ -7,17 +7,18 @@ const nameEl = document.getElementById("name");
 let visitors = ["Jan", "Badr", "Jos", "Mieke", "Anna", "Fien", "Klara", "Souf"];
 let showVisitors = false;
 
-//puur functionele check - geen side-effects
-function isInvited(name) {
+//puur functionele check
+//functie gebruikt alleen haar parameters, geen side-effects
+function isInvited(visitors, name) {
     return visitors.find(v => v.toLowerCase() === name.toLowerCase());
 }
 
 //aparte functie omdat we dan met return kunnen werken
-//UI-functie
-function getMessageCheckInvited(name) {
+//functie gebruikt alleen haar parameters, geen side-effects
+function checkInvited(visitors, name) {
     if (!name) return "vul een naam in.";
 
-    const invitedName = isInvited(name);
+    const invitedName = isInvited(visitors, name);
     return invitedName ? `${invitedName} is welkom!` : `${invitedName} is niet uitgenodigd.`;
 }
 
@@ -25,7 +26,7 @@ function getMessageCheckInvited(name) {
 //toont "<name> is welkom!" of "<name> is niet uitgenodigd."
 //check alleen volledige naam, case-insensitive
 function checkVisitorPresentButton() {
-    messageEl.innerHTML = getMessageCheckInvited(nameEl.value);
+    messageEl.innerHTML = checkInvited(visitors, nameEl.value);
 }
 
 function showVisitorsInUI() {
@@ -44,8 +45,9 @@ function toggleShowVisitorsButton() {
     showVisitorsInUI();
 }
 
-//functionele functie - maakt nieuwe array - dus geen side-effects
-function listWithExtraInvitee(name) {
+//functionele functie - maakt nieuwe array
+//functie gebruikt alleen haar parameters, geen side-effects
+function listWithExtraInvitee(visitors, name) {
     return visitors.concat(name);
 }
 
@@ -53,9 +55,9 @@ function listWithExtraInvitee(name) {
 function addInvitee(name) {
     //preconditions:
     if (!name) return "vul een naam in.";
-    if (isInvited(name)) return `${name} was al uitgenodigd.`;
+    if (isInvited(visitors, name)) return `${name} was al uitgenodigd.`;
 
-    visitors = listWithExtraInvitee(name);
+    visitors = listWithExtraInvitee(visitors, name);
     return `${name} toegevoegd.`;
 }
 
