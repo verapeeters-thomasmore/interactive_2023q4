@@ -19,7 +19,7 @@ function checkInvited(visitors, name) {
     if (!name) return "vul een naam in.";
 
     const invitedName = isInvited(visitors, name);
-    return invitedName ? `${invitedName} is welkom!` : `${invitedName} is niet uitgenodigd.`;
+    return invitedName ? `${invitedName} is welkom!` : `${name} is niet uitgenodigd.`;
 }
 
 //UI-functie
