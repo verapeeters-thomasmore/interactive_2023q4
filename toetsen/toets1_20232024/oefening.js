@@ -17,23 +17,27 @@ const attractions = [
 let favorites = ["Werewolf", "Cobra"];
 
 function showOneAttraction(attraction) {
-    const cssclass = favorites.includes(attraction.name) ? "favoriteAttraction": "";
-    return `<div class="col col-sm-6 col-md-3">
+    const cssclass = favorites.includes(attraction.name) ? "favoriteAttraction" : "";
+    console.log(`*${attraction.name}*`);
+    const s = `<div class="col col-sm-6 col-md-3" onclick="toggleFavorite('${attraction.name}')">
                 <div class="card p-2 m-1 ${cssclass}">
                      <h5>${attraction.name}</h5>
                     <div>${attraction.type}</div>
                     <div>min hoogte: ${attraction.heightRequirement} cm</div>
                     <div><b>${attraction.thrillLevel === "Extreme" ? "Extreme!!!" : ""}</b></div>
                    </div> 
-            </div>`
+            </div>`;
+    console.log(s);
+    return s;
 }
 
 
 //oefening 1: toon alle eigenschappen van attraction
 //oefening 2: filter
 //oefening 3: als attraction voorkomt in de favorites dan toon je deze in een andere kleur
-//oefening 4: als user op een attraction klikt: toggle favorite
-//oefening 5: sorteer
+//oefening 4: als user op een attraction klikt die niet in de favorites zit: nieuwe favorites lijst met de attraction erbij
+// TIP voor onclick!!!
+//oefening 5: als user op een attraction klikt die in de favorites zit: nieuwe favorites lijst met de attraction erbij
 
 
 //ze mogen ook zoeken op bootstrap
@@ -47,6 +51,11 @@ function showAttractionsInUI() {
 }
 
 function filterHeight() {
+    showAttractionsInUI();
+}
+
+function toggleFavorite(attractionName) {
+    favorites = favorites.includes(attractionName) ? favorites.filter(a => a!==attractionName) : favorites.concat(attractionName);
     showAttractionsInUI();
 }
 
