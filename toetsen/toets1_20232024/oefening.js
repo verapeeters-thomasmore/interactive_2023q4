@@ -17,8 +17,9 @@ const attractions = [
 let favorites = ["Werewolf", "Cobra"];
 
 function showOneAttraction(attraction) {
+    const cssclass = favorites.includes(attraction.name) ? "favoriteAttraction": "";
     return `<div class="col col-sm-6 col-md-3">
-                <div class="card p-2 m-1">
+                <div class="card p-2 m-1 ${cssclass}">
                      <h5>${attraction.name}</h5>
                     <div>${attraction.type}</div>
                     <div>min hoogte: ${attraction.heightRequirement} cm</div>
