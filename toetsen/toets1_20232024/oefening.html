@@ -8,24 +8,20 @@
 </head>
 <body>
 
-<div class="container">
+<div class="m-2">
     <h1>Attracties</h1>
     <form>
         <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text">Geef naam</span>
+            <div class="input-group">
+                <span class="input-group-text">hoogte</span>
+                <input type="number" id="height" class="form-control" placeholder="hoogte">
+                <button class="btn btn-outline-primary" type="button" onclick="filterHeight()">filter hoogte</button>
             </div>
-            <input type="text" id="name" class="form-control" placeholder="naam" oninput="filterVisitors()">
 
-            <div class="input-group mb-3">
-                <button class="btn btn-outline-primary" type="button" onclick="checkVisitorPresentButton()">check</button>
-                <button class="btn btn-outline-primary" type="button" onclick="toggleShowVisitorsButton()">toon genodigden</button>
-                <button class="btn btn-outline-primary" type="button" onclick="addVisitorButton()">nodig uit</button>
-            </div>
         </div>
     </form>
     <div id="message" class="alert alert-primary"></div>
-    <div id="list" class="alert"></div>
+    <div id="list" class="container-fluid"></div>
 </div>
 <script src="oefening.js"></script>
 
