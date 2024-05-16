@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oefening toets 1 2023-2024</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <h1>Attracties</h1>
+    <form>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Geef naam</span>
+            </div>
+            <input type="text" id="name" class="form-control" placeholder="naam" oninput="filterVisitors()">
+
+            <div class="input-group mb-3">
+                <button class="btn btn-outline-primary" type="button" onclick="checkVisitorPresentButton()">check</button>
+                <button class="btn btn-outline-primary" type="button" onclick="toggleShowVisitorsButton()">toon genodigden</button>
+                <button class="btn btn-outline-primary" type="button" onclick="addVisitorButton()">nodig uit</button>
+            </div>
+        </div>
+    </form>
+    <div id="message" class="alert alert-primary"></div>
+    <div id="list" class="alert"></div>
+</div>
+<script src="oefening.js"></script>
+
+
+</body>
+</html>
