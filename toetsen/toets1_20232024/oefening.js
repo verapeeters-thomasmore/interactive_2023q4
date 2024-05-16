@@ -31,9 +31,9 @@ function showOneAttraction(attraction) {
 
 //oefening 1: toon alle eigenschappen van attraction zoals in de screenshot
 //oefening 2: filter
-//oefening 3: als attraction voorkomt in de favorites dan toon je deze in een andere kleur
+//oefening 3: als attraction voorkomt in de favorites dan toon je deze in een andere kleur - gebruik de css class favoriteAttraction
 //oefening 4: als user op een attraction klikt die niet in de favorites zit: nieuwe favorites lijst met de attraction erbij
-// TIP voor onclick!!!
+// zie TIP voor onclick!!!
 //oefening 5: als user op een attraction klikt die in de favorites zit: nieuwe favorites lijst met de attraction erbij
 
 

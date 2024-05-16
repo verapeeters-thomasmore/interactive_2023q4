@@ -1,4 +1,5 @@
 const listEl = document.getElementById("list");
+const heightEl = document.getElementById("height");
 
 
 const attractions = [
@@ -16,9 +17,13 @@ const attractions = [
 let favorites = ["Werewolf", "Cobra"];
 
 function showOneAttraction(attraction) {
-    return `<div class="col col-sm-6 col-md-3">
-                <div class="card p-2 m-1">
-                     ${attraction.name}
+    const cssclass = favorites.includes(attraction.name) ? "favoriteAttraction" : "";
+    return `<div class="col col-sm-6 col-md-3" onclick="toggleFavorite('${attraction.name}')">
+                <div class="card p-2 m-1 ${cssclass}">
+                     <h5>${attraction.name}</h5>
+                    <div>${attraction.type}</div>
+                    <div>min hoogte: ${attraction.heightRequirement} cm</div>
+                    <div><b>${attraction.thrillLevel === "Extreme" ? "Extreme!!!" : ""}</b></div>
                 </div> 
             </div>`;
 }
@@ -34,9 +39,19 @@ function showOneAttraction(attraction) {
 
 function showAttractionsInUI() {
     const attractionsHTML = attractions
+        .filter(entry => !heightEl.value || entry.heightRequirement <= heightEl.value)
         .map(entry => showOneAttraction(entry))
         .join("");
     listEl.innerHTML = `<div class="row">${attractionsHTML}</div>`;
+}
+
+function filterHeight() {
+    showAttractionsInUI();
+}
+
+function toggleFavorite(attractionName) {
+    favorites = favorites.includes(attractionName) ? favorites.filter(a => a!==attractionName) : favorites.concat(attractionName);
+    showAttractionsInUI();
 }
 
 showAttractionsInUI();
