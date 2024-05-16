@@ -16,7 +16,12 @@ const attractions = [
 let favorites = ["Werewolf", "Cobra"];
 
 function showOneAttraction(attraction) {
-    return `<div class="col card m-1 p-3 col-sm-4 col-md-3">${attraction.name}</div>`
+    return `<div class="col card m-1 p-3 col-sm-4 col-md-3"> 
+                <h5>${attraction.name}</h5>
+                <div>${attraction.type}</div>
+                <div>${attraction.heightRequirement}</div>
+                <div><b>${attraction.thrillLevel==="Extreme" ? "Extreme!!!" : ""}</b></div>
+            </div> `
 }
 
 
