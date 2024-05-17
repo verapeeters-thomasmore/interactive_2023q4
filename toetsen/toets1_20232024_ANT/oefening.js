@@ -24,7 +24,7 @@ function showOneAttraction(attraction) {
                     <div>${attraction.type}</div>
                     <div>min hoogte: ${attraction.heightRequirement} cm</div>
                     <div><b>${attraction.thrillLevel === "Extreme" ? "Extreme!!!" : ""}</b></div>
-                   </div> 
+                </div> 
             </div>`;
 }
 

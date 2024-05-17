@@ -23,7 +23,7 @@ function showOnePerformance(performance) {
                      <h5>${performance.bandName}</h5>
                     <div>${performance.genre}</div>
                     <div><b>${performance.stage}</b> ${performance.performanceTime}</div>
-                   </div> 
+                </div> 
             </div>`;
 }
 

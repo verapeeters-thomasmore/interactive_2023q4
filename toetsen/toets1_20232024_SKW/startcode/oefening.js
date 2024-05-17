@@ -17,8 +17,8 @@ let favorites = ["Arctic Monkeys", "Billie Eilish"];
 function showOnePerformance(performance) {
     return `<div class="col col-sm-6 col-md-3">
                 <div class="card p-2 m-1">
-                     <h5>${performance.bandName}</h5>
-                   </div> 
+                    ${performance.bandName}
+                </div> 
             </div>`;
 }
 
