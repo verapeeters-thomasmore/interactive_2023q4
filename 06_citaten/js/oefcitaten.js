@@ -1,4 +1,4 @@
-const CITATEN = [
+const QUOTES = [
     {
         text: 'De dieren lijden en hun gejammer vervult de lucht. De bossen vallen ten prooi aan vernietiging. De bergen worden opengescheurd voor de metalen die in hun aderen groeien. En de mens looft en prijst degenen die aan de natuur en aan de mensheid de grootste schade berokkenen.',
         author: 'Leonardo da Vinci',
@@ -65,8 +65,8 @@ const authorButtonEl = document.getElementById("authorButton");
 const nextCitaatButtonEl = document.getElementById("nextCitaatButton");
 
 //state: changes on user action
-let availableCitaten = [];
-let shownCitaten = [];
+let availableQuotes = [];
+let shownQuotes = [];
 
 //quote is a String
 function makeOneAuthorDiv(quote) {
@@ -106,7 +106,7 @@ function makeElementVisible(element, visible) {
 }
 
 function showAuthor() {
-    quoteEl.innerHTML += makeOneAuthorDiv(shownCitaten[0]);
+    quoteEl.innerHTML += makeOneAuthorDiv(shownQuotes[0]);
     makeElementVisible(nextCitaatButtonEl, true);
     makeElementVisible(authorButtonEl, false);
 }
@@ -116,18 +116,18 @@ function makeOneQuoteDiv(quote) {
     return `<div class="card my-2 p-2"><h5>${quote.text}</h5></div>`;
 }
 
-function showOneCitaat() {
-    if (!availableCitaten.length) availableCitaten = [...CITATEN];
-    const randomCitaatIndex = Math.floor(Math.random() * availableCitaten.length);
-    shownCitaten = [availableCitaten[randomCitaatIndex], ...shownCitaten];
-    availableCitaten = availableCitaten.toSpliced(randomCitaatIndex, 1);
+function showOneRandomCitaat() {
+    if (!availableQuotes.length) availableQuotes = [...QUOTES];
+    const randomCitaatIndex = Math.floor(Math.random() * availableQuotes.length);
+    shownQuotes = [availableQuotes[randomCitaatIndex], ...shownQuotes];
+    availableQuotes = availableQuotes.toSpliced(randomCitaatIndex, 1);
     // console.log(randomCitaatIndex, shownCitaten, availableCitaten);
 
-    quoteEl.innerHTML += makeOneQuoteDiv(shownCitaten[0]);
+    quoteEl.innerHTML += makeOneQuoteDiv(shownQuotes[0]);
     makeElementVisible(nextCitaatButtonEl, false);
     makeElementVisible(authorButtonEl, true);
 }
 
-showOneCitaat();
+showOneRandomCitaat();
 
 
