@@ -117,23 +117,28 @@ function makeOneAuthorDiv(quote) {
             </div>`;
 }
 
+function getCurrentQuote() {
+    return QUOTES[idsOfShownQuotes[0]];
+}
+
 //UI function
 function showAuthor() {
-    quoteEl.innerHTML += makeOneAuthorDiv(QUOTES[idsOfShownQuotes[0]]);
+    quoteEl.innerHTML += makeOneAuthorDiv(getCurrentQuote());
     makeElementVisible(nextQuoteButtonEl, true);
     makeElementVisible(authorButtonEl, false);
 }
 
-//non-UI function, but not pure!
-function pickOneRandomQuote() {
-    if (idsOfShownQuotes.length === QUOTES.length) idsOfShownQuotes = []; // means start over
+//allQuotes is an array of quote-objects, idsOfShownQuotes is an array of numbers
+//returns new idOfShownQuotes, first one is the id of the randomly picked quote
+//pure function, no side-effects (but testing random functions has some extra challenges)
+function pickOneRandomQuote(allQuotes, idsOfShownQuotes) {
+    if (idsOfShownQuotes.length === allQuotes.length) idsOfShownQuotes = []; // means start over
 
-    const availableQuotes = QUOTES.filter(q => !idsOfShownQuotes.includes(q.id));
+    const availableQuotes = allQuotes.filter(q => !idsOfShownQuotes.includes(q.id));
     const randomCitaatIndexInAvailableQuotes = Math.floor(Math.random() * availableQuotes.length);
-    const randomQuote = availableQuotes[randomCitaatIndexInAvailableQuotes];
-    idsOfShownQuotes = [randomQuote.id, ...idsOfShownQuotes];
+    const newIdsOfShownQuotes = [availableQuotes[randomCitaatIndexInAvailableQuotes].id, ...idsOfShownQuotes];
     // console.log(randomCitaatIndexInAvailableQuotes, idsOfShownQuotes);
-    return randomQuote;
+    return newIdsOfShownQuotes;
 }
 
 //UI function
@@ -144,11 +149,12 @@ function makeOneQuoteDiv(quote) {
 
 //UI function
 function showOneRandomQuote() {
-    const quote = pickOneRandomQuote();
+    // const quote = pickOneRandomQuote();
+    idsOfShownQuotes = pickOneRandomQuote(QUOTES, idsOfShownQuotes);
 
-    quoteEl.innerHTML += makeOneQuoteDiv(quote);
-    // makeElementVisible(nextQuoteButtonEl, false);
-    // makeElementVisible(authorButtonEl, true);
+    quoteEl.innerHTML += makeOneQuoteDiv(getCurrentQuote());
+    makeElementVisible(nextQuoteButtonEl, false);
+    makeElementVisible(authorButtonEl, true);
 }
 
 showOneRandomQuote();
