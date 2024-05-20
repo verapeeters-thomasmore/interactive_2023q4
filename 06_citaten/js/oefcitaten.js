@@ -68,15 +68,6 @@ const nextCitaatButtonEl = document.getElementById("nextCitaatButton");
 let availableQuotes = [];
 let shownQuotes = [];
 
-//quote is a String
-function makeOneAuthorDiv(quote) {
-    return `<div class="card my-2 p-2 ps-5">
-                <h6>${quote.author}</h6>
-                <div>${quote.info}</div>
-                <div>Leefde van: ${quote.life}</div>
-            </div>`;
-}
-
 //className is a String, visible is a boolean
 function changeVisibility(className, visible) {
     const visibilityClasses = {true: "visible", false: "invisible"};
@@ -103,6 +94,15 @@ function changeVisibility(className, visible) {
 //element is a HTML-element, visible is a boolean
 function makeElementVisible(element, visible) {
     element.className = changeVisibility(element.className, visible);
+}
+
+//quote is a String
+function makeOneAuthorDiv(quote) {
+    return `<div class="card my-2 p-2 ps-5">
+                <h6>${quote.author}</h6>
+                <div>${quote.info}</div>
+                <div>Leefde van: ${quote.life}</div>
+            </div>`;
 }
 
 function showAuthor() {
