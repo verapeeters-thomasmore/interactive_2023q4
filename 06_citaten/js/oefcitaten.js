@@ -62,7 +62,7 @@ const QUOTES = [
 ];
 const quoteEl = document.getElementById("quote");
 const authorButtonEl = document.getElementById("authorButton");
-const nextCitaatButtonEl = document.getElementById("nextCitaatButton");
+const nextQuoteButtonEl = document.getElementById("nextQuoteButton");
 
 //state: changes on user action
 let availableQuotes = [];
@@ -107,7 +107,7 @@ function makeOneAuthorDiv(quote) {
 
 function showAuthor() {
     quoteEl.innerHTML += makeOneAuthorDiv(shownQuotes[0]);
-    makeElementVisible(nextCitaatButtonEl, true);
+    makeElementVisible(nextQuoteButtonEl, true);
     makeElementVisible(authorButtonEl, false);
 }
 
@@ -124,7 +124,7 @@ function showOneRandomCitaat() {
     // console.log(randomCitaatIndex, shownCitaten, availableCitaten);
 
     quoteEl.innerHTML += makeOneQuoteDiv(shownQuotes[0]);
-    makeElementVisible(nextCitaatButtonEl, false);
+    makeElementVisible(nextQuoteButtonEl, false);
     makeElementVisible(authorButtonEl, true);
 }
 
