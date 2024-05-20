@@ -68,6 +68,7 @@ const nextQuoteButtonEl = document.getElementById("nextQuoteButton");
 let availableQuotes = [];
 let shownQuotes = [];
 
+//pure function
 //className is a String, visible is a boolean
 function changeVisibility(className, visible) {
     const visibilityClasses = {true: "visible", false: "invisible"};
@@ -91,11 +92,13 @@ function changeVisibility(className, visible) {
 // testChangeVisibility("btn invisible", true, "btn visible");
 // testChangeVisibility("btn visible", false, "btn invisible");
 
+//UI function
 //element is a HTML-element, visible is a boolean
 function makeElementVisible(element, visible) {
     element.className = changeVisibility(element.className, visible);
 }
 
+//UI function
 //quote is a String
 function makeOneAuthorDiv(quote) {
     return `<div class="card my-2 p-2 ps-5">
@@ -105,29 +108,37 @@ function makeOneAuthorDiv(quote) {
             </div>`;
 }
 
+//UI function
 function showAuthor() {
     quoteEl.innerHTML += makeOneAuthorDiv(shownQuotes[0]);
     makeElementVisible(nextQuoteButtonEl, true);
     makeElementVisible(authorButtonEl, false);
 }
 
+//UI function
 //quote is a String
 function makeOneQuoteDiv(quote) {
     return `<div class="card my-2 p-2"><h5>${quote.text}</h5></div>`;
 }
 
-function showOneRandomCitaat() {
+//non-UI function, but not pure!
+function pickOneRandomQuote() {
     if (!availableQuotes.length) availableQuotes = [...QUOTES];
     const randomCitaatIndex = Math.floor(Math.random() * availableQuotes.length);
     shownQuotes = [availableQuotes[randomCitaatIndex], ...shownQuotes];
     availableQuotes = availableQuotes.toSpliced(randomCitaatIndex, 1);
     // console.log(randomCitaatIndex, shownCitaten, availableCitaten);
+}
+
+//UI function
+function showOneRandomQuote() {
+    pickOneRandomQuote();
 
     quoteEl.innerHTML += makeOneQuoteDiv(shownQuotes[0]);
     makeElementVisible(nextQuoteButtonEl, false);
     makeElementVisible(authorButtonEl, true);
 }
 
-showOneRandomCitaat();
+showOneRandomQuote();
 
 
