@@ -74,89 +74,10 @@ const quoteEl = document.getElementById("quote");
 const authorButtonEl = document.getElementById("authorButton");
 const nextQuoteButtonEl = document.getElementById("nextQuoteButton");
 
-//state: changes on user action
-let idsOfShownQuotes = [];
-
-//pure function
-//className is a String, visible is a boolean
-function changeVisibility(className, visible) {
-    const visibilityClasses = {true: "visible", false: "invisible"};
-    const [oldCssClass, newCssClass] = [visibilityClasses[!visible], visibilityClasses[visible]];
-    return className.split(" ").filter(attr => attr !== oldCssClass).join(" ") + " " + newCssClass;
-}
-
-//EXTRA: how can we be sure that the function changeVisibility works in all cases?
-// function testChangeVisibility(className, visible, expectedResult) {
-//     console.log(`TEST: changeVisibility("${className}", ${visible}) -- expect: "${expectedResult}"`);
-//     const result = changeVisibility(className, visible);
-//     console.log(`     ${result===expectedResult ? "OK": "ERROR!!!"} -- result: "${result}"`);
-// }
-//
-// testChangeVisibility("", true, " visible"); //ok to have a leading space..
-// testChangeVisibility("", false, " invisible"); //ok to have a leading space..
-// testChangeVisibility("invisible", true, " visible");
-// testChangeVisibility("visible", false, " invisible");
-// testChangeVisibility("btn", true, "btn visible");
-// testChangeVisibility("btn", false, "btn invisible");
-// testChangeVisibility("btn invisible", true, "btn visible");
-// testChangeVisibility("btn visible", false, "btn invisible");
-
-//UI function
-//element is a HTML-element, visible is a boolean
-function makeElementVisible(element, visible) {
-    element.className = changeVisibility(element.className, visible);
-}
-
-//UI function
-//quote is a String
-function makeOneAuthorDiv(quote) {
-    return `<div class="card my-2 p-2 ps-5">
-                <h6>${quote.author}</h6>
-                <div>${quote.info}</div>
-                <div>Leefde van: ${quote.life}</div>
-            </div>`;
-}
-
-function getCurrentQuote() {
-    return QUOTES[idsOfShownQuotes[0]];
-}
-
-//UI function
-function showAuthor() {
-    quoteEl.innerHTML += makeOneAuthorDiv(getCurrentQuote());
-    makeElementVisible(nextQuoteButtonEl, true);
-    makeElementVisible(authorButtonEl, false);
-}
-
-//allQuotes is an array of quote-objects, idsOfShownQuotes is an array of numbers
-//returns new idOfShownQuotes, first one is the id of the randomly picked quote
-//pure function, no side-effects (but testing random functions has some extra challenges)
-function pickOneRandomQuote(allQuotes, idsOfShownQuotes) {
-    if (idsOfShownQuotes.length === allQuotes.length) idsOfShownQuotes = []; // means start over
-
-    const availableQuotes = allQuotes.filter(q => !idsOfShownQuotes.includes(q.id));
-    const randomCitaatIndexInAvailableQuotes = Math.floor(Math.random() * availableQuotes.length);
-    const newIdsOfShownQuotes = [availableQuotes[randomCitaatIndexInAvailableQuotes].id, ...idsOfShownQuotes];
-    // console.log(randomCitaatIndexInAvailableQuotes, idsOfShownQuotes);
-    return newIdsOfShownQuotes;
-}
-
-//UI function
-//quote is a String
-function makeOneQuoteDiv(quote) {
-    return `<div class="card my-2 p-2"><h5>${quote.text}</h5></div>`;
-}
-
-//UI function
-function showOneRandomQuote() {
-    // const quote = pickOneRandomQuote();
-    idsOfShownQuotes = pickOneRandomQuote(QUOTES, idsOfShownQuotes);
-
-    quoteEl.innerHTML += makeOneQuoteDiv(getCurrentQuote());
-    makeElementVisible(nextQuoteButtonEl, false);
-    makeElementVisible(authorButtonEl, true);
-}
-
 showOneRandomQuote();
 
-
+//stap 1: bij opstart: toon een random citaat
+//stap 2: als user op de knop "van wie is dit citaat" klikt, toon author-info van het getoonde citaat
+//stap 3: als user op de knop "volgend citaat" klikt, toon een random citaat
+//stap 4: als user op de knop "volgend citaat" klikt, toon een random citaat dat nog niet getoond is
+//stap 5: bij opstarten toon je alleen de knop "van wie is dit citaat?", als op deze knop geklikt wordt toon je alleen de andere knop

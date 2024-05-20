@@ -160,3 +160,9 @@ function showOneRandomQuote() {
 showOneRandomQuote();
 
 
+//stap 1: bij opstart: toon een random citaat
+//stap 2: als user op de knop "van wie is dit citaat" klikt, toon author-info van het getoonde citaat
+//stap 3: als user op de knop "volgend citaat" klikt, toon een random citaat
+//stap 4: als user op de knop "volgend citaat" klikt, toon een random citaat dat nog niet getoond is
+//stap 5: bij opstarten toon je alleen de knop "van wie is dit citaat?", als op deze knop geklikt wordt toon je alleen de andere knop
+
