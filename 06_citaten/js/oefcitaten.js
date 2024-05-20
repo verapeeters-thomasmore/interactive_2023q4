@@ -127,7 +127,7 @@ function pickOneRandomQuote() {
     const randomCitaatIndex = Math.floor(Math.random() * availableQuotes.length);
     shownQuotes = [availableQuotes[randomCitaatIndex], ...shownQuotes];
     availableQuotes = availableQuotes.toSpliced(randomCitaatIndex, 1);
-    // console.log(randomCitaatIndex, shownCitaten, availableCitaten);
+     console.log(randomCitaatIndex, shownQuotes, availableQuotes);
 }
 
 //UI function
