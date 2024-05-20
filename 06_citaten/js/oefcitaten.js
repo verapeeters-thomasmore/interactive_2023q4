@@ -84,6 +84,22 @@ function changeVisibility(className, visible) {
     return className.split(" ").filter(attr => attr !== oldCssClass).join(" ") + " " + newCssClass;
 }
 
+//EXTRA: how can we be sure that the function changeVisibility works in all cases?
+// function testChangeVisibility(className, visible, expectedResult) {
+//     console.log(`TEST: changeVisibility("${className}", ${visible}) -- expect: "${expectedResult}"`);
+//     const result = changeVisibility(className, visible);
+//     console.log(`     ${result===expectedResult ? "OK": "ERROR!!!"} -- result: "${result}"`);
+// }
+//
+// testChangeVisibility("", true, " visible"); //ok to have a leading space..
+// testChangeVisibility("", false, " invisible"); //ok to have a leading space..
+// testChangeVisibility("invisible", true, " visible");
+// testChangeVisibility("visible", false, " invisible");
+// testChangeVisibility("btn", true, "btn visible");
+// testChangeVisibility("btn", false, "btn invisible");
+// testChangeVisibility("btn invisible", true, "btn visible");
+// testChangeVisibility("btn visible", false, "btn invisible");
+
 //element is a HTML-element, visible is a boolean
 function makeElementVisible(element, visible) {
     element.className = changeVisibility(element.className, visible);
@@ -105,7 +121,7 @@ function showOneCitaat() {
     const randomCitaatIndex = Math.floor(Math.random() * availableCitaten.length);
     shownCitaten = [availableCitaten[randomCitaatIndex], ...shownCitaten];
     availableCitaten = availableCitaten.toSpliced(randomCitaatIndex, 1);
-    console.log(randomCitaatIndex, shownCitaten, availableCitaten);
+    // console.log(randomCitaatIndex, shownCitaten, availableCitaten);
 
     quoteEl.innerHTML += makeOneQuoteDiv(shownCitaten[0]);
     makeElementVisible(nextCitaatButtonEl, false);
