@@ -93,7 +93,7 @@ function showOneRandomQuote() {
     if (idsOfShownQuotes.length === QUOTES.length) idsOfShownQuotes = []; // means start over
 
     const availableQuotes = QUOTES.filter(q => !idsOfShownQuotes.includes(q.id));
-    const randomCitaatIndexInAvailableQuotes = Math.floor(Math.random() * QUOTES.length);
+    const randomCitaatIndexInAvailableQuotes = Math.floor(Math.random() * availableQuotes.length);
     const nextQuote = availableQuotes[randomCitaatIndexInAvailableQuotes];
     idsOfShownQuotes = [nextQuote.id, ...idsOfShownQuotes];
 
