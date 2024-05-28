@@ -81,10 +81,10 @@ let idsOfShownQuotes = [];
 function showAuthor() {
     const {author, info, life} = QUOTES.find(q => q.id === idsOfShownQuotes[0]);
     quoteEl.innerHTML += `<div class="card my-2 p-2 ps-5">
-                <h6>${author}</h6>
-                <div>${info}</div>
-                <div>Leefde van: ${life}</div>
-            </div>`;
+                              <h6>${author}</h6>
+                              <div>${info}</div>
+                              <div>Leefde van: ${life}</div>
+                          </div>`;
     nextQuoteButtonEl.hidden = false;
     authorButtonEl.hidden = true;
 }
