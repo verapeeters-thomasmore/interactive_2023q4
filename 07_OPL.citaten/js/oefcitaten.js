@@ -96,6 +96,7 @@ function showOneRandomQuote() {
     const randomCitaatIndexInAvailableQuotes = Math.floor(Math.random() * availableQuotes.length);
     const nextQuote = availableQuotes[randomCitaatIndexInAvailableQuotes];
     idsOfShownQuotes = [nextQuote.id, ...idsOfShownQuotes];
+    console.log(idsOfShownQuotes, availableQuotes);
 
     quoteEl.innerHTML += `<div class="card my-2 p-2"><h5>${QUOTES.find(q => q.id === idsOfShownQuotes[0]).text}</h5></div>`;
     nextQuoteButtonEl.hidden = true;
