@@ -1,0 +1,392 @@
+[
+  {
+    "id": 1,
+    "name": "Sony PlayStation 5",
+    "price": 499.99,
+    "description": "Next-generation gaming console for immersive gaming experiences",
+    "category": "Electronics",
+    "brand": "Sony",
+    "color": "White",
+    "image": {
+      "url": "https://picsum.photos/id/1/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S21",
+    "price": 799.99,
+    "description": "Powerful smartphone with a stunning display and advanced camera",
+    "category": "Electronics",
+    "brand": "Samsung",
+    "color": "Phantom Black",
+    "image": {
+      "url": "https://picsum.photos/id/2/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Adidas Ultraboost",
+    "price": 179.99,
+    "description": "Comfortable and stylish running shoes for athletes",
+    "category": "Sports",
+    "brand": "Adidas",
+    "color": "Core Black",
+    "image": {
+      "url": "https://picsum.photos/id/3/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Amazon Echo Dot",
+    "price": 49.99,
+    "description": "Smart speaker with Alexa voice assistant for hands-free control",
+    "category": "Electronics",
+    "brand": "Amazon",
+    "color": "Charcoal",
+    "image": {
+      "url": "https://picsum.photos/id/4/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Canon EOS Rebel T7i",
+    "price": 699.99,
+    "description": "High-quality DSLR camera for capturing stunning photos and videos",
+    "category": "Electronics",
+    "brand": "Canon",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/5/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Calvin Klein Underwear",
+    "price": 29.99,
+    "description": "Comfortable and stylish underwear for everyday wear",
+    "category": "Clothing",
+    "brand": "Calvin Klein",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/6/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 7,
+    "name": "KitchenAid Stand Mixer",
+    "price": 299.99,
+    "description": "Versatile and powerful stand mixer for baking and cooking",
+    "category": "Home & Kitchen",
+    "brand": "KitchenAid",
+    "color": "Empire Red",
+    "image": {
+      "url": "https://picsum.photos/id/7/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 8,
+    "name": "Samsung 4K Smart TV",
+    "price": 899.99,
+    "description": "Ultra-high definition smart TV for an immersive entertainment experience",
+    "category": "Electronics",
+    "brand": "Samsung",
+    "color": "Titan Gray",
+    "image": {
+      "url": "https://picsum.photos/id/8/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Dyson V11 Vacuum Cleaner",
+    "price": 599.99,
+    "description": "Powerful cordless vacuum cleaner for efficient cleaning",
+    "category": "Home & Kitchen",
+    "brand": "Dyson",
+    "color": "Nickel/Blue",
+    "image": {
+      "url": "https://picsum.photos/id/9/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Oakley Sunglasses",
+    "price": 149.99,
+    "description": "High-quality sunglasses for UV protection and style",
+    "category": "Fashion",
+    "brand": "Oakley",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/10/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Nintendo Switch",
+    "price": 299.99,
+    "description": "Portable gaming console for gaming on the go",
+    "category": "Electronics",
+    "brand": "Nintendo",
+    "color": "Neon Blue/Neon Red",
+    "image": {
+      "url": "https://picsum.photos/id/11/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Nike Air Force 1",
+    "price": 89.99,
+    "description": "Classic sneakers for a timeless and stylish look",
+    "category": "Fashion",
+    "brand": "Nike",
+    "color": "White",
+    "image": {
+      "url": "https://picsum.photos/id/12/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 13,
+    "name": "Apple AirPods Pro",
+    "price": 249.99,
+    "description": "Wireless earbuds with active noise cancellation for immersive audio",
+    "category": "Electronics",
+    "brand": "Apple",
+    "color": "White",
+    "image": {
+      "url": "https://picsum.photos/id/13/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 14,
+    "name": "Samsung Galaxy Watch 4",
+    "price": 299.99,
+    "description": "Smartwatch with health and fitness tracking features",
+    "category": "Electronics",
+    "brand": "Samsung",
+    "color": "Mystic Black",
+    "image": {
+      "url": "https://picsum.photos/id/14/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 15,
+    "name": "L'Oreal Paris Mascara",
+    "price": 9.99,
+    "description": "Volumizing mascara for long and thick lashes",
+    "category": "Beauty",
+    "brand": "L'Oreal Paris",
+    "color": "Blackest Black",
+    "image": {
+      "url": "https://picsum.photos/id/15/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 16,
+    "name": "LEGO Technic Bugatti Chiron",
+    "price": 349.99,
+    "description": "Build and play with a detailed replica of the Bugatti Chiron supercar",
+    "category": "Toys",
+    "brand": "LEGO",
+    "color": "Blue",
+    "image": {
+      "url": "https://picsum.photos/id/16/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 17,
+    "name": "Harry Potter Complete Book Set",
+    "price": 69.99,
+    "description": "The complete set of Harry Potter books for fans of the series",
+    "category": "Books",
+    "brand": "J.K. Rowling",
+    "color": "Multicolor",
+    "image": {
+      "url": "https://picsum.photos/id/17/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 18,
+    "name": "Weber Gas Grill",
+    "price": 499.99,
+    "description": "High-quality gas grill for outdoor cooking and grilling",
+    "category": "Outdoor",
+    "brand": "Weber",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/18/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 19,
+    "name": "Bose QuietComfort 35 II",
+    "price": 299.99,
+    "description": "Wireless noise-canceling headphones for immersive audio experience",
+    "category": "Electronics",
+    "brand": "Bose",
+    "color": "Silver",
+    "image": {
+      "url": "https://picsum.photos/id/19/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 20,
+    "name": "GoPro HERO9 Black",
+    "price": 399.99,
+    "description": "High-quality action camera for capturing adventures",
+    "category": "Electronics",
+    "brand": "GoPro",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/20/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 21,
+    "name": "Vans Old Skool",
+    "price": 59.99,
+    "description": "Classic skate shoes for a cool and casual style",
+    "category": "Fashion",
+    "brand": "Vans",
+    "color": "Black/White",
+    "image": {
+      "url": "https://picsum.photos/id/21/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 22,
+    "name": "Fitbit Versa 3",
+    "price": 199.99,
+    "description": "Smartwatch with fitness and health tracking features",
+    "category": "Health",
+    "brand": "Fitbit",
+    "color": "Midnight Blue/Gold",
+    "image": {
+      "url": "https://picsum.photos/id/22/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 23,
+    "name": "Sony WH-1000XM4",
+    "price": 349.99,
+    "description": "Premium wireless noise-canceling headphones for exceptional audio",
+    "category": "Electronics",
+    "brand": "Sony",
+    "color": "Silver",
+    "image": {
+      "url": "https://picsum.photos/id/23/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 24,
+    "name": "LG OLED TV",
+    "price": 1499.99,
+    "description": "Ultra-thin OLED TV with stunning picture quality",
+    "category": "Electronics",
+    "brand": "LG",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/24/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 25,
+    "name": "Cuisinart Food Processor",
+    "price": 129.99,
+    "description": "Versatile food processor for easy and efficient food preparation",
+    "category": "Home & Kitchen",
+    "brand": "Cuisinart",
+    "color": "Brushed Stainless",
+    "image": {
+      "url": "https://picsum.photos/id/25/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 26,
+    "name": "Ray-Ban Aviator Sunglasses",
+    "price": 169.99,
+    "description": "Iconic aviator sunglasses for a stylish and timeless look",
+    "category": "Fashion",
+    "brand": "Ray-Ban",
+    "color": "Gold/Green",
+    "image": {
+      "url": "https://picsum.photos/id/26/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 27,
+    "name": "Microsoft Surface Laptop 4",
+    "price": 1299.99,
+    "description": "Powerful and sleek laptop for productivity and creativity",
+    "category": "Electronics",
+    "brand": "Microsoft",
+    "color": "Platinum",
+    "image": {
+      "url": "https://picsum.photos/id/27/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 28,
+    "name": "Breville Espresso Machine",
+    "price": 699.99,
+    "description": "High-quality espresso machine for barista-style coffee at home",
+    "category": "Home & Kitchen",
+    "brand": "Breville",
+    "color": "Stainless Steel",
+    "image": {
+      "url": "https://picsum.photos/id/28/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 29,
+    "name": "Sony Alpha a7 III",
+    "price": 1999.99,
+    "description": "Full-frame mirrorless camera for professional photography",
+    "category": "Electronics",
+    "brand": "Sony",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/29/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  },
+  {
+    "id": 30,
+    "name": "Anker Power Bank",
+    "price": 39.99,
+    "description": "Portable charger for charging devices on the go",
+    "category": "Electronics",
+    "brand": "Anker",
+    "color": "Black",
+    "image": {
+      "url": "https://picsum.photos/id/30/1000/500",
+      "alt": "Sony PlayStation 5"
+    }
+  }
+]
