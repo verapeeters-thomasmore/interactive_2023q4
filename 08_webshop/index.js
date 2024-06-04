@@ -3,7 +3,145 @@ const searchInput = document.getElementById("search");
 const togglePrices = document.getElementById("toggle-prices");
 const sortButton = document.getElementById("sort");
 
-renderProducts(products);
+const PRODUCTS = [
+	{
+		id: 1,
+		name: "Sony PlayStation 5",
+		price: 499.99,
+		description:
+			"Next-generation gaming console for immersive gaming experiences",
+		category: "Electronics",
+		brand: "Sony",
+		color: "White",
+		image: {
+			url: "https://picsum.photos/id/1/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 2,
+		name: "Samsung Galaxy S21",
+		price: 799.99,
+		description:
+			"Powerful smartphone with a stunning display and advanced camera",
+		category: "Electronics",
+		brand: "Samsung",
+		color: "Phantom Black",
+		image: {
+			url: "https://picsum.photos/id/2/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 3,
+		name: "Adidas Ultraboost",
+		price: 179.99,
+		description: "Comfortable and stylish running shoes for athletes",
+		category: "Sports",
+		brand: "Adidas",
+		color: "Core Black",
+		image: {
+			url: "https://picsum.photos/id/3/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 4,
+		name: "Amazon Echo Dot",
+		price: 49.99,
+		description:
+			"Smart speaker with Alexa voice assistant for hands-free control",
+		category: "Electronics",
+		brand: "Amazon",
+		color: "Charcoal",
+		image: {
+			url: "https://picsum.photos/id/4/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 5,
+		name: "Canon EOS Rebel T7i",
+		price: 699.99,
+		description:
+			"High-quality DSLR camera for capturing stunning photos and videos",
+		category: "Electronics",
+		brand: "Canon",
+		color: "Black",
+		image: {
+			url: "https://picsum.photos/id/5/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 6,
+		name: "Calvin Klein Underwear",
+		price: 29.99,
+		description: "Comfortable and stylish underwear for everyday wear",
+		category: "Clothing",
+		brand: "Calvin Klein",
+		color: "Black",
+		image: {
+			url: "https://picsum.photos/id/6/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 7,
+		name: "KitchenAid Stand Mixer",
+		price: 299.99,
+		description: "Versatile and powerful stand mixer for baking and cooking",
+		category: "Home & Kitchen",
+		brand: "KitchenAid",
+		color: "Empire Red",
+		image: {
+			url: "https://picsum.photos/id/7/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 8,
+		name: "Samsung 4K Smart TV",
+		price: 899.99,
+		description:
+			"Ultra-high definition smart TV for an immersive entertainment experience",
+		category: "Electronics",
+		brand: "Samsung",
+		color: "Titan Gray",
+		image: {
+			url: "https://picsum.photos/id/8/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 9,
+		name: "Dyson V11 Vacuum Cleaner",
+		price: 599.99,
+		description: "Powerful cordless vacuum cleaner for efficient cleaning",
+		category: "Home & Kitchen",
+		brand: "Dyson",
+		color: "Nickel/Blue",
+		image: {
+			url: "https://picsum.photos/id/9/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+	{
+		id: 10,
+		name: "Oakley Sunglasses",
+		price: 149.99,
+		description: "High-quality sunglasses for UV protection and style",
+		category: "Fashion",
+		brand: "Oakley",
+		color: "Black",
+		image: {
+			url: "https://picsum.photos/id/10/1000/500",
+			alt: "Sony PlayStation 5",
+		},
+	},
+];
+
+renderProducts(PRODUCTS);
 
 /**
  * Deze functie toont de producten in de productList
